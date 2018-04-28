@@ -9,11 +9,14 @@ namespace IEProject.Models
     {
       
         public string name { get; set; }
+        public decimal? latitude { get; set; }
+        public decimal? longitude { get; set; }
         public string wheelchair { get; set; }
         public string male { get; set; }
         public string female { get; set; }
 
         public double distance { get; set; }
         public string address { get; set; }
+       
     }
 }

@@ -14,6 +14,7 @@
 document.getElementById('Latitude').value = 0;
 document.getElementById('Longitude').value = 0;
 
+
 google.maps.event.addDomListener(window, 'load', function () {
     var options = {
      

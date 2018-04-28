@@ -193,10 +193,17 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\Banner7NoContrast.png" />
     <Content Include="Content\images\disabled-128.png" />
+    <Content Include="Content\images\layers-2x.png" />
+    <Content Include="Content\images\layers.png" />
     <Content Include="Content\images\Logo1.svg" />
+    <Content Include="Content\images\marker-icon-2x.png" />
+    <Content Include="Content\images\marker-icon.png" />
+    <Content Include="Content\images\marker-shadow.png" />
     <Content Include="Content\images\NewBanner.png" />
     <Content Include="Content\images\womencanva2Shorter.png" />
     <Content Include="Content\LandingPage.css" />
+    <Content Include="Content\leaflet.css" />
+    <Content Include="Content\map.css" />
     <Content Include="Content\pace-theme-flash.css" />
     <Content Include="Content\pace-theme-flat-top.css" />
     <Content Include="Content\pace-theme-loading-bar.css" />
@@ -247,6 +254,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\leaflet-src.js" />
+    <Content Include="Scripts\leaflet.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\myScript2.js" />
     <Content Include="Scripts\myScript6.js" />
@@ -289,6 +298,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\JourneyPlanner.cshtml" />
+    <Content Include="Scripts\leaflet-src.js.map" />
+    <Content Include="Scripts\leaflet.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
