@@ -217,7 +217,7 @@ namespace IEProject.Controllers
                 double longitude = Double.Parse(tempLocation[1]);
                 distanceTo.Latitude = latitude;
                 distanceTo.Longitude = longitude;
-                nearest.Add(new StationsNearby { name = station.station, distance = Math.Round(distanceFrom.GetDistanceTo(distanceTo), 0),lift=station.lift });
+                nearest.Add(new StationsNearby { name = station.station, distance = Math.Round(distanceFrom.GetDistanceTo(distanceTo), 0),lift=station.lift,lat=latitude,lon=longitude });
             }
             foreach (var building in Buildings)
             {
@@ -239,7 +239,7 @@ namespace IEProject.Controllers
                     distanceTo.Latitude = latitude;
                     distanceTo.Longitude = longitude;
 
-                    nearestbuilding.Add(new BuildingsNearby { distance = Math.Round(distanceFrom.GetDistanceTo(distanceTo), 0), address = building.Street_address, type = building.Trading_name,industrydesc=building.Industry_description,accesstype=building.Accessibility_type,accessdesc=building.Accessibility_type_description,accessrate=building.Accessibility_rating });
+                    nearestbuilding.Add(new BuildingsNearby { distance = Math.Round(distanceFrom.GetDistanceTo(distanceTo), 0), address = building.Street_address, type = building.Trading_name,industrydesc=building.Industry_description,accesstype=building.Accessibility_type,accessdesc=building.Accessibility_type_description,accessrate=building.Accessibility_rating,lat = latitude,lon= longitude });
                 }
             }
 
@@ -250,7 +250,7 @@ namespace IEProject.Controllers
                 double longitude = parkingspot.lon;
                 distanceTo.Latitude = latitude;
                 distanceTo.Longitude = longitude;
-                nearestparking.Add(new ParkingNearby { distance = Math.Round(distanceFrom.GetDistanceTo(distanceTo), 0), id = parkingspot.BayId });
+                nearestparking.Add(new ParkingNearby { distance = Math.Round(distanceFrom.GetDistanceTo(distanceTo), 0), id = parkingspot.BayId,lat=parkingspot.lat,lon=parkingspot.lon });
             }
 
             /// <summary>

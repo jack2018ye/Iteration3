@@ -424,14 +424,91 @@
     accessToken: 'your.mapbox.access.token'
     }).addTo(mymap);
 
-    var toilets = JSON.parse('@Html.Raw(Json.Encode(@Model.sorttoilets))')
-   
+
+    var toilets = JSON.parse('@Html.Raw(Json.Encode(@Model.sorttoilets))');
+
 
     for (var i = 0; i < toilets.length; i++) {
-  
-    var marker = L.marker([toilets[i].latitude,toilets[i].longitude]).addTo(mymap);
-    marker.bindPopup("Distance: "+ toilets[i].distance + '<br>'+"Address : " + toilets[i].address  ).openPopup();
+
+        var marker = L.marker([toilets[i].latitude, toilets[i].longitude]).addTo(mymap);
+
+        marker.bindPopup("Public Toilet" + '<br>' + "Wheelchair Access: " + toilets[i].wheelchair + '<br>' + "Address : " + toilets[i].address + '<br>'+ "Distance: " + toilets[i].distance).openPopup();
     }
+
+    var buildings = JSON.parse('@Html.Raw(Json.Encode(@Model.sortbuildings))');
+
+
+    var greenIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+    for (var i = 0; i < buildings.length; i++) {
+
+        var marker = L.marker([buildings[i].lat, buildings[i].lon], { icon: greenIcon }).addTo(mymap);
+
+        marker.bindPopup("Establishment" + '<br>' + "Name : " + buildings[i].type + '<br>' + "Address : " + buildings[i].address + '<br>' + "Accessibility: " + buildings[i].accessdesc + '<br>' + "Distance: " + buildings[i].distance).openPopup();
+    }
+
+
+    var stations = JSON.parse('@Html.Raw(Json.Encode(@Model.sorttrains))');
+
+
+    var blackIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+
+    var marker = L.marker([stations[0].lat, stations[0].lon], { icon: blackIcon }).addTo(mymap);
+
+    marker.bindPopup("Distance: " + stations[0].distance + '<br>' + "Train Station : " + stations[0].name).openPopup();
+
+    var carparks = JSON.parse('@Html.Raw(Json.Encode(@Model.sortparkingspots))');
+
+
+    var orangeIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    for (var i = 0; i < carparks.length; i++) {
+        var marker = L.marker([carparks[i].lat, carparks[i].lon], { icon: orangeIcon }).addTo(mymap);
+
+        marker.bindPopup("Parking Bay" + "Distance: " + carparks[i].distance + '<br>' + "BayID: " + carparks[i].id).openPopup();
+    }
+
+    var redIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+
+    });
+
+
+    var address=JSON.parse('@Html.Raw(Json.Encode(@Model.Address))');
+    var lat = JSON.parse('@Html.Raw(Json.Encode(@Model.Latitude))');
+    var lon = JSON.parse('@Html.Raw(Json.Encode(@Model.Longitude))');
+    var marker2 = L.marker([lat, lon], { icon: redIcon }).addTo(mymap);
+
+    marker2 .bindPopup( "Your Destination" +'<br>'+"Address : " + address).openPopup();
+
+
+
 </script>
 }
 

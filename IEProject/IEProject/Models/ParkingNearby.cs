@@ -12,5 +12,7 @@ namespace IEProject.Models
 
         public int id { get; set; }
         public double distance { get; set; }
+        public double lat { get; set; }
+        public double lon { get; set; }
     }
 }

@@ -16,6 +16,8 @@ namespace IEProject.Models
         public string accessdesc { get; set; }
         public string accesstype { get; set; }
         public int accessrate { get; set; }
+        public double lat { get; set; }
+        public double lon { get; set; }
 
     }
 }
