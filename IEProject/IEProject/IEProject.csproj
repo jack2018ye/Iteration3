@@ -191,14 +191,38 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonticons.css" />
     <Content Include="Content\images\Banner7NoContrast.png" />
+    <Content Include="Content\images\c1.jpg" />
+    <Content Include="Content\images\c2.jpg" />
+    <Content Include="Content\images\c3.jpg" />
+    <Content Include="Content\images\c4.jpg" />
+    <Content Include="Content\images\cl1.jpg" />
+    <Content Include="Content\images\cutmypic.png" />
     <Content Include="Content\images\disabled-128.png" />
+    <Content Include="Content\images\featurebg.png" />
+    <Content Include="Content\images\ft1.png" />
+    <Content Include="Content\images\ft2.png" />
+    <Content Include="Content\images\ft3.png" />
+    <Content Include="Content\images\ft4.png" />
+    <Content Include="Content\images\homebg.jpg" />
+    <Content Include="Content\images\icon1.png" />
+    <Content Include="Content\images\ii1.png" />
+    <Content Include="Content\images\Ken.png" />
+    <Content Include="Content\images\lancy.png" />
     <Content Include="Content\images\layers-2x.png" />
     <Content Include="Content\images\layers.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\Logo1.svg" />
+    <Content Include="Content\images\Logo2.png" />
+    <Content Include="Content\images\Logo3.png" />
+    <Content Include="Content\images\mapbg.png" />
     <Content Include="Content\images\marker-icon-2x.png" />
     <Content Include="Content\images\marker-icon.png" />
     <Content Include="Content\images\marker-shadow.png" />
+    <Content Include="Content\images\Marlene.png" />
     <Content Include="Content\images\NewBanner.png" />
     <Content Include="Content\images\womencanva2Shorter.png" />
     <Content Include="Content\LandingPage.css" />
@@ -207,10 +231,22 @@
     <Content Include="Content\pace-theme-flash.css" />
     <Content Include="Content\pace-theme-flat-top.css" />
     <Content Include="Content\pace-theme-loading-bar.css" />
+    <Content Include="Content\plugins.css" />
+    <Content Include="Content\responsive.css" />
     <Content Include="Content\ServicePage.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\Transparent.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\lato-bold-webfont.svg" />
+    <Content Include="fonts\Linearicons-Free.svg" />
+    <Content Include="fonts\raleway-bold.svg" />
+    <Content Include="fonts\raleway-light.svg" />
+    <Content Include="fonts\raleway-regular.svg" />
+    <Content Include="fonts\raleway-semibold.svg" />
+    <Content Include="fonts\sanchez-regular.svg" />
+    <Content Include="fonts\stylesheet.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\PublicToilet.Context.tt">
@@ -233,6 +269,39 @@
     <Content Include="Models\PublicToilet.edmx.diagram">
       <DependentUpon>PublicToilet.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\lato-bold-webfont.eot" />
+    <Content Include="fonts\lato-bold-webfont.ttf" />
+    <Content Include="fonts\lato-bold-webfont.woff" />
+    <Content Include="fonts\lato-bold-webfont.woff2" />
+    <Content Include="fonts\Linearicons-Free.eot" />
+    <Content Include="fonts\Linearicons-Free.ttf" />
+    <Content Include="fonts\Linearicons-Free.woff" />
+    <Content Include="fonts\Linearicons-Free.woff2" />
+    <Content Include="fonts\raleway-bold.eot" />
+    <Content Include="fonts\raleway-bold.ttf" />
+    <Content Include="fonts\raleway-bold.woff" />
+    <Content Include="fonts\raleway-bold.woff2" />
+    <Content Include="fonts\raleway-light.eot" />
+    <Content Include="fonts\raleway-light.ttf" />
+    <Content Include="fonts\raleway-light.woff" />
+    <Content Include="fonts\raleway-light.woff2" />
+    <Content Include="fonts\raleway-regular.eot" />
+    <Content Include="fonts\raleway-regular.ttf" />
+    <Content Include="fonts\raleway-regular.woff" />
+    <Content Include="fonts\raleway-regular.woff2" />
+    <Content Include="fonts\raleway-semibold.eot" />
+    <Content Include="fonts\raleway-semibold.ttf" />
+    <Content Include="fonts\raleway-semibold.woff" />
+    <Content Include="fonts\raleway-semibold.woff2" />
+    <Content Include="fonts\sanchez-regular.eot" />
+    <Content Include="fonts\sanchez-regular.ttf" />
+    <Content Include="fonts\sanchez-regular.woff" />
+    <Content Include="fonts\sanchez-regular.woff2" />
     <None Include="Properties\PublishProfiles\disability - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\disability - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\disability - Web Deploy %282%29.pubxml" />
@@ -244,24 +313,30 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\datScript.js" />
     <Content Include="Scripts\dd.js" />
+    <Content Include="Scripts\gmaps.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.easypiechart.min.js" />
     <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.mixitup.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\leaflet-src.js" />
     <Content Include="Scripts\leaflet.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\myScript2.js" />
     <Content Include="Scripts\myScript6.js" />
     <Content Include="Scripts\pace.js" />
     <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\pdfprint.js" />
+    <Content Include="Scripts\plugins.js" />
     <Content Include="Scripts\refresh.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -312,7 +387,9 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Scripts\vendor\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
