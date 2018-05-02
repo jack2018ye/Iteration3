@@ -2,35 +2,149 @@
     ViewData["Title"] = "Women2";
 }
 
-<link href="~/Content/Transparent.css" rel="stylesheet" />
+<!doctype html>
+@Styles.Render("~/Content/leaflet.css")
+<style>
+    .container {
+        position: relative;
+        text-align: center;
+    
+    }
 
-<div class="no-padding">
-    <div class="row">
-        <div class="col-md-12">
-            <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="6000">
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="~/Content/images/Banner7NoContrast.png" alt="ASP.NET" class="img-responsive center-block" />
-                        <div class="carousel-caption" role="option">
+    .bottom-left {
+        position: absolute;
+        bottom: 8px;
+        left: 16px;
+    }
+
+    .top-left {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+    }
+
+    .top-right {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+    }
+
+    .bottom-right {
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+    }
+
+    .ce {
+        position: absolute;
+        top: 50%;
+        left: 70%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+<body data-spy="scroll" data-target="#navmenu">
+
+   
+
+    <div class="no-padding" >
+        <div class="row">
+            <div class="col-md-12">
+                <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="6000">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="/Content/images/Banner7NoContrast.png" alt="ASP.NET" class="img-responsive center-block" />
+                            <div class="ce">
+                                <span class="centered" style="color:white;font-size:30px;padding-top:0px;padding-bottom:0px;padding-left:3px;padding-right:3px"><strong>Planning your Journey?</strong></span><br />
+                                <div class="centered" style="color:white;width:auto;font-size:20px;padding:5px"> We make Melbourne city accessible to you.</div>
+                                <div class="text-center" style="margin-top:30px">
+                                    <a class="btn btn-warning btn-min-block btn-lg" href="/Home/JourneyPlanner">Start here</a>
+                                </div>
+                            </div>
+                            <div class="carousel-caption" role="option">
+                  
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
-            <div class="main-text">
-                <div class="col-md-5"></div>
-                <div class="col-md-7 text-center" style="margin-top:150px">
-
-                    <span style="font-size:45px;background-color:#00b8ff;padding-top:0px;padding-bottom:0px;padding-left:3px;padding-right:3px"><strong>Planning your Journey?</strong></span><br />
-
-                    <span class="text-center" style="width:auto;font-size:20px;padding:5px">
-                        We make Melbourne city accessible to you.
-                    </span><h4></h4>
-                    <div class="text-center" style="margin-top:30px">
-                        <a class="btn btn-warning btn-min-block btn-lg" href="/Home/JourneyPlanner">Start here</a>
-                    </div>
+                <div class="main-text">
+                    <div class="col-md-5"></div>
+        
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <section id="clients" class="clients" style="color:black">
+        <div class="container">
+            <div class="row">
+                <div class="main_clients_area">
+
+                  
+                    <div class="main_clients_bottom_content">
+                        <h2>Meet Our Team</h2>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                
+                                <div class="single_client_bottom">
+                                   
+                                    <p>
+                                        “ Jack is an MNS Student. ”
+                                    </p>
+                                    <a href="">-Jack</a>
+                                    <div class="singel_client_bottom_img">
+                                        <img src="~/Content/images/cutmypic.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="single_client_bottom">
+                                    <p>
+                                        “ Lancy is an MBIS Student. ”
+                                    </p>
+                                    <a href="">-Lancy</a>
+                                    <div class="singel_client_bottom_img">
+                                        <img src="~/Content/images/lancy.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="single_client_bottom">
+                                    <p>
+                                        “ Marlene is an MIT Student. ”
+                                    </p>
+                                    <a href="">-Marlene</a>
+                                    <div class="singel_client_bottom_img">
+                                        <img src="~/Content/images/Marlene.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <div class="col-sm-4">
+                                <div class="single_client_bottom">
+                                    <p>
+                                        “ Kenneth is an MIT Student. ”
+                                    </p>
+                                    <a href="">-Kenneth</a>
+                                    <div class="singel_client_bottom_img">
+                                        <img src="~/Content/images/Ken.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>

@@ -439,7 +439,7 @@
 
 @section Scripts {
     @Scripts.Render("~/Scripts/jquery.js")
-    @Scripts.Render("http://maps.googleapis.com/maps/api/js?key=AIzaSyCF8dUfrXUwf5-fqeBOTJNPBw4iYYsI_bk&sensor=false&libraries=places")
+    @Scripts.Render("https://maps.googleapis.com/maps/api/js?key=AIzaSyCF8dUfrXUwf5-fqeBOTJNPBw4iYYsI_bk&sensor=false&libraries=places")
     @Scripts.Render("~/Scripts/autoapi.js")
     @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js")
     @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js")
@@ -453,7 +453,7 @@
     var lon = JSON.parse('@Html.Raw(Json.Encode(@Model.Longitude))');
     var mymap = L.map('mapid').setView([lat,lon], 15);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hpbmlnYW1pZXgiLCJhIjoiY2pnaXZhcG81MDJjMTJxcWpnc3VpajI5bCJ9.N5t4GjexNqoKeNtL1JxyUA', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
     accessToken: 'your.mapbox.access.token'

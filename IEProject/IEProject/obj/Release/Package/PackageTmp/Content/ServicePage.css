@@ -1,5 +1,6 @@
 body {
     /*background-color: #5a4c4c;*/
+
     background-image:url(/Content/images/NewBanner.png);
     padding-top: 0px;
 }
@@ -28,4 +29,29 @@ background-color: #FFFFFF;
 
 .jumbotron{
     margin-top:70px;
+}
+#print
+{
+    position:relative;
+    bottom:1330px;
+    width:550px;
+   right:29px;
+    background-color:Gray;
+    overflow-y: scroll;
+    max-width:550px;
+    max-height:550px;
+    height:550px;
+}
+
+#content
+{
+    position:relative;
+    right:40px;
+    top:60px;
+  
+}
+hr{
+ 
+    border-color:black;
+
 }

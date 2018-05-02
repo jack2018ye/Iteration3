@@ -306,7 +306,9 @@
     <None Include="Properties\PublishProfiles\disability - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\disability - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\disability - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\disability2 - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\disability2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\disability2 - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\disability2 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\mobileimpair - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\mobileimpair - Web Deploy.pubxml" />
