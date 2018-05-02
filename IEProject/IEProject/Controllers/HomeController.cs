@@ -76,7 +76,12 @@ namespace IEProject.Controllers
             return View();
         }
 
+        public ActionResult Support()
+        {
+            ViewBag.Message = "Support page.";
 
+            return View();
+        }
         /// <summary>
         /// This method returns the Wheelchair Public Toilet page upon clicking the menu button that is named Wheelchair public toilets.
         /// </summary>
