@@ -344,6 +344,10 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\site.min.js" />
+    <Content Include="Scripts\vendor\bootstrap.min.js" />
+    <Content Include="Scripts\vendor\isotope.min.js" />
+    <Content Include="Scripts\vendor\jquery-1.11.2.min.js" />
+    <Content Include="Scripts\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -390,9 +394,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\vendor\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

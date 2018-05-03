@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="~/Content/responsive.css" />
 
     <script src="~/Scripts/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
 </head>
 
 <body>
@@ -146,21 +147,32 @@
         <div class="scrollup">
             <a href="#"><i class="fa fa-chevron-up"></i></a>
         </div>
-
-        <script src="~/Scripts/vendor/jquery-1.11.2.min.js"></script>
-        <script src="~/Scripts/vendor/bootstrap.min.js"></script>
-        <script src="~/Scripts/vendor/isotope.min.js"></script>
-
-        <script src="~/Scripts/jquery.easypiechart.min.js"></script>
-        <script src="~/Scripts/jquery.mixitup.min.js"></script>
-
-
-
-
-        <script src="~/Scripts/plugins.js"></script>
-        <script src="~/Scripts/main.js"></script>
-
-
-    @RenderSection("Scripts", required: false)
+    <environment include="Development">
+       @Scripts.Render("~/Scripts/vendor/jquery-1.11.2.min.js")
+       @Scripts.Render("~/Scripts/vendor/bootstrap.min.js")
+        @Scripts.Render("~/Scripts/vendor/isotope.min.js")
+        @Scripts.Render("~/Scripts/jquery.easypiechart.min.js")
+      @Scripts.Render("~/Scripts/jquery.mixitup.min.js")
+        @Scripts.Render("~/Scripts/plugins.js")
+       @Scripts.Render("~/Scripts/main.js" )
+     
+        }
+        </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/Scripts/site.min.js" asp-append-version="true"></script>
+    </environment>
+        @RenderSection("Scripts", required: false)
 </body>
 </html>
