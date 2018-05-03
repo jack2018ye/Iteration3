@@ -31,8 +31,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="lat" Type="numeric" Precision="12" Scale="8" />
-    <Property Name="lon" Type="numeric" Precision="12" Scale="8" />
+    <Property Name="lat" Type="float" />
+    <Property Name="lon" Type="float" />
     <Property Name="name" Type="nvarchar" MaxLength="100" />
     <Property Name="female" Type="nvarchar" MaxLength="50" />
     <Property Name="male" Type="nvarchar" MaxLength="50" />

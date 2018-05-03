@@ -397,6 +397,5 @@ C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\bin\Syst
 C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\bin\System.Web.WebPages.Razor.xml
 C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\bin\Antlr3.Runtime.pdb
 C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\bin\Newtonsoft.Json.xml
-C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\obj\Debug\IEProject.csprojResolveAssemblyReference.cache
 C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\obj\Debug\IEProject.dll
 C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\obj\Debug\IEProject.pdb

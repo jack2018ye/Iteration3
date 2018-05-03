@@ -212,7 +212,7 @@ namespace IEProject.Controllers
                 double longitude = Double.Parse(tempLocation[1]);
                 distanceTo.Latitude = latitude;
                 distanceTo.Longitude = longitude;
-                ordered.Add(new ToiletNearby { name = toilet.name,wheelchair=toilet.wheelchair,male=toilet.male,female=toilet.female, distance = Math.Round(distanceFrom.GetDistanceTo(distanceTo), 0), address = toilet.Address,latitude=toilet.lat,longitude=toilet.lon });
+                ordered.Add(new ToiletNearby { name = toilet.name,wheelchair=toilet.wheelchair,male=toilet.male,female=toilet.female, distance = Math.Round(distanceFrom.GetDistanceTo(distanceTo), 0), address = toilet.Address,latitude=latitude,longitude=longitude });
             }
 
             foreach (var station in TrainStations)

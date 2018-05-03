@@ -36,8 +36,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="lat" Type="numeric" Precision="12" Scale="8" />
-          <Property Name="lon" Type="numeric" Precision="12" Scale="8" />
+          <Property Name="lat" Type="float" />
+          <Property Name="lon" Type="float" />
           <Property Name="name" Type="nvarchar" MaxLength="100" />
           <Property Name="female" Type="nvarchar" MaxLength="50" />
           <Property Name="male" Type="nvarchar" MaxLength="50" />
@@ -74,8 +74,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="lat" Type="Decimal" Precision="12" Scale="8" />
-          <Property Name="lon" Type="Decimal" Precision="12" Scale="8" />
+          <Property Name="lat" Type="Double" />
+          <Property Name="lon" Type="Double" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="female" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="male" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

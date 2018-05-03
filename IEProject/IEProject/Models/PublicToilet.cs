@@ -15,8 +15,8 @@ namespace IEProject.Models
     public partial class PublicToilet
     {
         public int Id { get; set; }
-        public Nullable<decimal> lat { get; set; }
-        public Nullable<decimal> lon { get; set; }
+        public double lat { get; set; }
+        public double lon { get; set; }
         public string name { get; set; }
         public string female { get; set; }
         public string male { get; set; }
@@ -25,6 +25,6 @@ namespace IEProject.Models
         public string baby_facil { get; set; }
         public string location { get; set; }
         public string Address { get; set; }
-        public Nullable<int> Postcode { get; set; }
+        public int Postcode { get; set; }
     }
 }
