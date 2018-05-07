@@ -281,17 +281,19 @@ namespace IEProject.Controllers
                 {
                     if (SortedList[i].distance <= 1000)
                     {
+                        if (model.toilettick == true)
+                        {
+                            model.sorttoilets.Add(SortedList[i]);
 
-                        model.sorttoilets.Add(SortedList[i]);
-
-                        model.sorttoilets[i].name = model.sorttoilets[i].name.Substring(model.sorttoilets[i].name.LastIndexOf('-') + 1);
+                            model.sorttoilets[i].name = model.sorttoilets[i].name.Substring(model.sorttoilets[i].name.LastIndexOf('-') + 1);
+                        }
 
                     }
 
                 }
                 for (int i = 0; i < 1; i++)
                 {
-
+                    if(model.traintick==true)
                     model.sorttrains.Add(SortedTrains[i]);
 
 
@@ -306,7 +308,7 @@ namespace IEProject.Controllers
                         co = SortedBuildings.Count;
                     for (int i = 0; i < co; i++)
                     {
-
+                        if(something.Count>0)
                        
                             model.sortbuildings.Add(SortedBuildings[i]);
                         
@@ -317,7 +319,7 @@ namespace IEProject.Controllers
                 }
                 for (int i = 0; i < 5; i++)
                 {
-
+                    if(model.cartick==true)
                     model.sortparkingspots.Add(SortedParkingspots[i]);
 
 

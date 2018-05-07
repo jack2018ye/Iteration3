@@ -66,12 +66,12 @@
                     <div class="col-sm-4">
                         <h5 style="color:black">How are you travelling?</h5>
                         <hr />
-                       
+
                         <div style="color:black">
                             @Html.CheckBoxFor(m => m.cartick)
                             @Html.Label("Car")
                         </div>
-                      
+
                         <div style="color:black">
 
 
@@ -86,22 +86,26 @@
                             @Html.CheckBoxFor(m => m.toilettick)
                             @Html.Label("Public Toilet")
                         </div>
-                        <div style="color:black">
-                            @Html.CheckBoxFor(m => m.accomodationselect)
-                            @Html.Label("Accomodation")
+                        <div id="others">
+                            <div style="color:black">
+                                @Html.CheckBoxFor(m => m.accomodationselect)
+                                @Html.Label("Accomodation")
 
+                            </div>
+
+                            <div style="color:black">
+                                @Html.CheckBoxFor(m => m.hairdressingselect)
+
+                                @Html.Label("Hairdressing and Beauty Services")
+
+                            </div>
                         </div>
+                    </div>
+                    <div class="col-lg-3">
 
-                        <div style="color:black">
-                            @Html.CheckBoxFor(m => m.hairdressingselect)
-
-                            @Html.Label("Hairdressing and Beauty Services")
-
-                        </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <h5 style="color:black">Food and Drinks</h5>
-                            <hr />
+                        <h5 style="color:black">Food and Drinks</h5>
+                        <hr />
+                        <div id="others">
                             <div style="color:black">
                                 @Html.CheckBoxFor(m => m.barselect)
                                 @Html.Label("Pubs, Taverns and Bars")
@@ -112,22 +116,26 @@
                                 @Html.Label("Cafes and Restaurants")
 
                             </div>
-                            </div>
+
+                        </div>
+                    </div>
                     <div class="col-lg-4">
                         <h5 style="color:black">Shopping</h5>
                         <hr />
-                        <div style="color:black">
-                            @Html.CheckBoxFor(m => m.retailselect)
-                            @Html.Label("Clothing Retailing")
+                        <div id="others">
+                            <div style="color:black">
+                                @Html.CheckBoxFor(m => m.retailselect)
+                                @Html.Label("Clothing Retailing")
 
-                        </div>
-                        <div style="color:black">
-                            @Html.CheckBoxFor(m => m.supermarketselect)
-                            @Html.Label("Supermarket and Grocery Stores")
+                            </div>
+                            <div style="color:black">
+                                @Html.CheckBoxFor(m => m.supermarketselect)
+                                @Html.Label("Supermarket and Grocery Stores")
 
+                            </div>
                         </div>
                     </div>
-                    </div>
+                </div>
 
             </form>
            
@@ -209,7 +217,7 @@
                         </div>
                         <br />
 
-                        <div id="let" style="visibility:hidden">
+                        <div id="let" style="display:none">
                             <table id="data" font color="#FFFFFF" style="font-size:10px" class="table">
 
                                 <thead>
@@ -265,7 +273,7 @@
                             </table>
                         </div>
 
-                        <div id="train" style="visibility:hidden">
+                        <div id="train" style="display:none">
                             <table id="data2" font color="#FFFFFF" style="font-size:10px" class="table">
 
                                 <thead>
@@ -308,69 +316,71 @@
                             </table>
                         </div>
 
-                        <table id="data3" font color="#FFFFFF"  style="font-size:10px" class="table">
+                        <div id="b1" style="display:none">
+                            <table id="data3" font color="#FFFFFF" style="font-size:10px" class="table">
 
-                            <thead>
-                                <tr>
-
-                                    <th>
-                                        @Html.Label("Trade Name", htmlAttributes: new { @class = "control-label col-md-2" })
-                                    </th>
-                                    <th>
-                                        @Html.Label("Industry Description", htmlAttributes: new { @class = "control-label col-md-2" })
-                                    </th>
-                                    <th>
-                                        @Html.Label("Accessibility Description", htmlAttributes: new { @class = "control-label col-md-2" })
-                                    </th>
-                                    <th>
-                                        @Html.Label("Establishment Address", htmlAttributes: new { @class = "control-label col-md-2" })
-                                    </th>
-
-
-
-
-
-                                    <th>
-                                        @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
-                                    </th>
-
-                                    <th></th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var element in Model.sortbuildings)
-                {
+                                <thead>
                                     <tr>
-                                        <td>
-                                            @Html.DisplayFor(m => element.type)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(m => element.industrydesc)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(m => element.accessdesc)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(m => element.address)
-                                        </td>
+
+                                        <th>
+                                            @Html.Label("Trade Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        </th>
+                                        <th>
+                                            @Html.Label("Industry Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        </th>
+                                        <th>
+                                            @Html.Label("Accessibility Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        </th>
+                                        <th>
+                                            @Html.Label("Establishment Address", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        </th>
 
 
 
 
 
+                                        <th>
+                                            @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        </th>
 
-
-                                        <td>
-                                            @Html.DisplayFor(m => element.distance)
-                                        </td>
-
+                                        <th></th>
 
                                     </tr>
-                                }
-                            </tbody>
-                        </table>
-                        <div id="car" style="visibility:hidden">
+                                </thead>
+                                <tbody>
+                                    @foreach (var element in Model.sortbuildings)
+                {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(m => element.type)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => element.industrydesc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => element.accessdesc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(m => element.address)
+                                            </td>
+
+
+
+
+
+
+
+                                            <td>
+                                                @Html.DisplayFor(m => element.distance)
+                                            </td>
+
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="car" style="display:none">
                             <table id="data4" font color="#FFFFFF" style="font-size:10px" class="table">
 
                                 <thead>
@@ -451,6 +461,7 @@
 <script>
     var lat = JSON.parse('@Html.Raw(Json.Encode(@Model.Latitude))');
     var lon = JSON.parse('@Html.Raw(Json.Encode(@Model.Longitude))');
+    var address = JSON.parse('@Html.Raw(Json.Encode(@Model.Address))');
     var mymap = L.map('mapid').setView([lat,lon], 15);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hpbmlnYW1pZXgiLCJhIjoiY2pnaXZhcG81MDJjMTJxcWpnc3VpajI5bCJ9.N5t4GjexNqoKeNtL1JxyUA', {
     attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
@@ -458,6 +469,25 @@
     id: 'mapbox.streets',
     accessToken: 'your.mapbox.access.token'
     }).addTo(mymap);
+
+
+    var redIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+
+    });
+
+
+    if (address != null) {
+
+        var marker2 = L.marker([lat, lon], { icon: redIcon }).addTo(mymap);
+    }
+
+    marker2.bindPopup("Your Destination" + '<br>' + "Address : " + address).openPopup();
 
 
     var toilets = JSON.parse('@Html.Raw(Json.Encode(@Model.sorttoilets))');
@@ -510,9 +540,12 @@
     });
 
 
-    var marker = L.marker([stations[0].lat, stations[0].lon], { icon: blackIcon }).addTo(mymap);
+    for (var i = 0; i < stations.length; i++) {
+        var marker = L.marker([stations[i].lat, stations[i].lon], { icon: blackIcon }).addTo(mymap);
+  
 
-    marker.bindPopup("Distance: " + stations[0].distance + '<br>' + "Train Station : " + stations[0].name).openPopup();
+        marker.bindPopup("Distance: " + stations[i].distance + '<br>' + "Train Station : " + stations[i].name).openPopup();
+    }
 
     var carparks = JSON.parse('@Html.Raw(Json.Encode(@Model.sortparkingspots))');
 
@@ -532,23 +565,6 @@
         marker.bindPopup("Parking Bay" + "Distance: " + carparks[i].distance + '<br>' + "BayID: " + carparks[i].id).openPopup();
     }
 
-    var redIcon = new L.Icon({
-        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-
-    });
-
-
-    var address=JSON.parse('@Html.Raw(Json.Encode(@Model.Address))');
-    var lat = JSON.parse('@Html.Raw(Json.Encode(@Model.Latitude))');
-    var lon = JSON.parse('@Html.Raw(Json.Encode(@Model.Longitude))');
-    var marker2 = L.marker([lat, lon], { icon: redIcon }).addTo(mymap);
-
-    marker2 .bindPopup( "Your Destination" +'<br>'+"Address : " + address).openPopup();
 
 
 

@@ -1,0 +1,18 @@
+body {
+    background-image: url(/Content/images/Banner7NoContrast.png)
+}
+
+.navbar {
+    background: transparent;
+}
+
+h3.question {
+    color:#edeff2; 
+    font-family: fantasy;
+}
+
+p.answer {
+    color: #edeff2;
+    font-weight: bold;
+    font-family: sans-serif;
+}

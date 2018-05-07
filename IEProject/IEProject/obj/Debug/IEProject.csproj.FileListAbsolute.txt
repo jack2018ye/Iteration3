@@ -399,3 +399,4 @@ C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\bin\Antl
 C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\bin\Newtonsoft.Json.xml
 C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\obj\Debug\IEProject.dll
 C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\obj\Debug\IEProject.pdb
+C:\Users\Kode_\OneDrive\Documents\GitHub\Iteration3\IEProject\IEProject\obj\Debug\IEProject.csprojResolveAssemblyReference.cache
