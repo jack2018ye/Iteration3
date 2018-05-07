@@ -58,10 +58,11 @@
                                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                             </div>
                         </div>
+       
         <br />
       
         <div class="container" style="font-size:10px">
-            <form style="color:black" id="servicesForm">
+          
                 <div class="parent">
                     <div class="col-sm-4">
                         <h5 style="color:black">How are you travelling?</h5>
@@ -136,12 +137,29 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    
 
-            </form>
-           
+                </div>
+       
+            <div>
+                @Html.Label("Time :")
+
+
+                @Html.DropDownListFor(model => model.hour, new SelectList(ViewBag.hours, "Value", "Text"),"Select")
+                @Html.ValidationMessageFor(model => model.hour, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.Label("Day :")
+                @Html.DropDownListFor(model => model.day, new SelectList(ViewBag.days, "Value", "Text"),"Select")
+                @Html.ValidationMessageFor(model => model.day, "", new { @class = "text-danger" })
             </div>
 
-   
+            </div>
+
+
+
+
         <button type="submit" class="btn btn-primary btn-lg btn-block">Search</button>
         </div>
    
@@ -167,11 +185,15 @@
                         @Html.HiddenFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
                     </div>
+                        <div class="col-md-10">
+                            @Html.HiddenFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
+                        </div>
+                        
 
-                    <div class="col-md-10">
-                        @Html.HiddenFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
-                    </div>
+
+
+                    
                     <div class="col-md-10">
                         @Html.HiddenFor(model => model.select, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.select, "", new { @class = "text-danger" })
@@ -206,7 +228,7 @@
                 <div id="content" >
                     <div id="mapid"></div>
                     <div id="print" style="margin-left:640px">
-                      
+                        
                         <div style="background-color:white;font-size:10px">
                             @Html.Label("This is a journey planner")
                             <br />
@@ -247,7 +269,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach (var element in Model.sorttoilets)
-                {
+                    {
                                         <tr>
                                             <td>
                                                 @Html.DisplayFor(m => element.address)
@@ -296,7 +318,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach (var element in Model.sorttrains)
-                {
+                    {
                                         <tr>
                                             <td>
                                                 @Html.DisplayFor(m => element.name)
@@ -349,7 +371,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach (var element in Model.sortbuildings)
-                {
+                    {
                                         <tr>
                                             <td>
                                                 @Html.DisplayFor(m => element.type)
@@ -401,7 +423,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach (var element in Model.sortparkingspots)
-                {
+                    {
                                         <tr>
                                             <td>
                                                 @Html.DisplayFor(m => element.id)
@@ -478,8 +500,8 @@
         iconAnchor: [12, 41],
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
-
     });
+
 
 
     if (address != null) {
@@ -542,7 +564,7 @@
 
     for (var i = 0; i < stations.length; i++) {
         var marker = L.marker([stations[i].lat, stations[i].lon], { icon: blackIcon }).addTo(mymap);
-  
+
 
         marker.bindPopup("Distance: " + stations[i].distance + '<br>' + "Train Station : " + stations[i].name).openPopup();
     }
@@ -566,6 +588,22 @@
     }
 
 
+
+    var peds = JSON.parse('@Html.Raw(Json.Encode(@Model.pedestrians))');
+    var greyIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    for (var i = 0; i < peds.length; i++) {
+        var marker = L.marker([peds[i].Latitude, peds[i].Longitude], { icon: greyIcon }).addTo(mymap);
+
+        marker.bindPopup("Pedestrian Volume"+'<br>'+ peds[i].HoursCount +   " people here" ).openPopup();
+    }
 
 
 </script>

@@ -75,7 +75,7 @@ namespace IEProject.Controllers
 
             return View();
         }
-
+ 
         public ActionResult Support()
         {
             ViewBag.Message = "Support page.";
@@ -87,7 +87,8 @@ namespace IEProject.Controllers
         /// </summary>
         /// <returns>ActionResult.</returns>
         /// 
-        
+
+       
         [HttpGet]
         public ActionResult JourneyPlanner()
         {
@@ -95,10 +96,40 @@ namespace IEProject.Controllers
             var model = new PublicToiletForm();
             var PublicToilets = new List<PublicToilet>();
             PublicToilets = db.PublicToilets.ToList();
+            List <string> hours = new List<string>() { "", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" };
+            List<string> days = new List<string>() { "", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+
+          
+            List<SelectListItem> good = new List<SelectListItem>();
+            List<SelectListItem> bad = new List<SelectListItem>();
+            foreach (String hour in hours)
+            {
+
+
+                good.Add(new SelectListItem { Value = hour, Text = hour });
+
+            }
+            foreach (String day in days)
+            {
+
+
+                bad.Add(new SelectListItem { Value = day, Text = day });
+
+            }
+            IEnumerable<SelectListItem> hourss =good;
+            IEnumerable<SelectListItem> dayss = bad;
+            model.hours = hourss;
+            model.days = dayss;
+            
+            ViewBag.hours = hourss;
+            ViewBag.days = dayss;
 
 
 
+         
             return View(model);
+          
+
         }
 
         /// <summary>
@@ -110,6 +141,34 @@ namespace IEProject.Controllers
         [HttpPost]
         public ActionResult JourneyPlanner(PublicToiletForm model)
         {
+            
+            List<string> hours = new List<string>() { "", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" };
+            List<string> days = new List<string>() { "", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+
+
+            List<SelectListItem> good = new List<SelectListItem>();
+            List<SelectListItem> bad = new List<SelectListItem>();
+            foreach (String hour in hours)
+            {
+
+
+                good.Add(new SelectListItem { Value = hour, Text = hour });
+
+            }
+            foreach (String day in days)
+            {
+
+
+                bad.Add(new SelectListItem { Value = day, Text = day });
+
+            }
+            List<SelectListItem> hourss = good;
+            List<SelectListItem> dayss = bad;
+            ViewBag.hours = hourss;
+            ViewBag.days = dayss;
+
+
+
 
             ViewBag.Message = "Journey Planner.";
             IGeocoder geocoder = new GoogleGeocoder() { ApiKey = "AIzaSyCF8dUfrXUwf5-fqeBOTJNPBw4iYYsI_bk" };
@@ -134,6 +193,7 @@ namespace IEProject.Controllers
             var TrainStations = new List<TrainStation>();
             var Buildings = new List<building>();
             var parkingspots = new List<Parking>();
+            var crowddensity = new List<PedestrianVolume>();
             PublicToilets = db.PublicToilets.ToList();
             TrainStations = db.TrainStations.ToList();
             var something = new List<String>();
@@ -186,8 +246,19 @@ namespace IEProject.Controllers
             }
 
 
-            //Buildings = db.buildings.Where(building => building.Trading_name.Contains("Retail")).ToList(); 
+           // Buildings = db.buildings.Where(building => building.Trading_name.Contains("Retail")).ToList(); 
             parkingspots = db.Parkings.ToList();
+
+            int tester = -1;
+            if (model.hour != null)
+            {
+                 tester = Int32.Parse(model.hour);
+            }
+           
+            
+            crowddensity = db.PedestrianVolumes.Where(PedestrianVolume => PedestrianVolume.Day.Equals(model.day) && PedestrianVolume.Time ==tester ).ToList();
+
+            model.pedestrians = crowddensity;
             GeoCoordinate distanceFrom = new GeoCoordinate();
             GeoCoordinate distanceTo = new GeoCoordinate();
             model.toilets = PublicToilets;

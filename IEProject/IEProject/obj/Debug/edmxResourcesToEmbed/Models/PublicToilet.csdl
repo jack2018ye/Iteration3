@@ -22,6 +22,7 @@
     <EntitySet Name="buildings" EntityType="AccessibilityEntitiesModel.building" />
     <EntitySet Name="TrainStations" EntityType="AccessibilityEntitiesModel.TrainStation" />
     <EntitySet Name="Parkings" EntityType="AccessibilityEntitiesModel.Parking" />
+    <EntitySet Name="PedestrianVolumes" EntityType="AccessibilityEntitiesModel.PedestrianVolume" />
   </EntityContainer>
   <EntityType Name="building">
     <Key>
@@ -59,5 +60,18 @@
     <Property Name="area" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="des_dis_ext" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PedestrianVolume">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sensor_ID" Type="Double" />
+    <Property Name="Day" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Time" Type="Int32" />
+    <Property Name="HoursCount" Type="Int32" />
+    <Property Name="Coordinates" Type="String" MaxLength="41" FixedLength="false" Unicode="false" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="Longitude" Type="Double" />
   </EntityType>
 </Schema>

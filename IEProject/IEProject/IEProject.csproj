@@ -157,6 +157,9 @@
       <DependentUpon>PublicToilet.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ParkingNearby.cs" />
+    <Compile Include="Models\PedestrianVolume.cs">
+      <DependentUpon>PublicToilet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PublicToilet1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,6 +227,9 @@
     <Content Include="Content\images\marker-shadow.png" />
     <Content Include="Content\images\Marlene.png" />
     <Content Include="Content\images\NewBanner.png" />
+    <Content Include="Content\images\person1.png" />
+    <Content Include="Content\images\person2.png" />
+    <Content Include="Content\images\person3.png" />
     <Content Include="Content\images\womencanva2Shorter.png" />
     <Content Include="Content\LandingPage.css" />
     <Content Include="Content\leaflet.css" />
