@@ -483,7 +483,12 @@
 <script>
     var lat = JSON.parse('@Html.Raw(Json.Encode(@Model.Latitude))');
     var lon = JSON.parse('@Html.Raw(Json.Encode(@Model.Longitude))');
+
     var address = JSON.parse('@Html.Raw(Json.Encode(@Model.Address))');
+    if (address == null) {
+        lat = -37.8136;
+        lon = 144.9631;
+    }
     var mymap = L.map('mapid').setView([lat,lon], 15);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hpbmlnYW1pZXgiLCJhIjoiY2pnaXZhcG81MDJjMTJxcWpnc3VpajI5bCJ9.N5t4GjexNqoKeNtL1JxyUA', {
     attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
@@ -504,7 +509,7 @@
 
 
 
-    if (address != null) {
+    if (address != null && address !="") {
 
         var marker2 = L.marker([lat, lon], { icon: redIcon }).addTo(mymap);
     }
