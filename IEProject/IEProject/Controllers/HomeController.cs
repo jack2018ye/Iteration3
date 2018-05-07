@@ -146,26 +146,26 @@ namespace IEProject.Controllers
             List<string> days = new List<string>() { "", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
 
-            List<SelectListItem> good = new List<SelectListItem>();
-            List<SelectListItem> bad = new List<SelectListItem>();
+            List<SelectListItem> itemhours = new List<SelectListItem>();
+            List<SelectListItem> itemdays = new List<SelectListItem>();
             foreach (String hour in hours)
             {
 
 
-                good.Add(new SelectListItem { Value = hour, Text = hour });
+                itemhours.Add(new SelectListItem { Value = hour, Text = hour });
 
             }
             foreach (String day in days)
             {
 
 
-                bad.Add(new SelectListItem { Value = day, Text = day });
+                itemdays.Add(new SelectListItem { Value = day, Text = day });
 
             }
-            List<SelectListItem> hourss = good;
-            List<SelectListItem> dayss = bad;
-            ViewBag.hours = hourss;
-            ViewBag.days = dayss;
+            List<SelectListItem> viewhours = itemhours;
+            List<SelectListItem> viewdays = itemdays;
+            ViewBag.hours = viewhours;
+            ViewBag.days = viewdays;
 
 
 
