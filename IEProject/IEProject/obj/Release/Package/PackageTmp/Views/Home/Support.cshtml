@@ -1,42 +1,43 @@
-@{
+﻿@{
     ViewBag.Title = "Support";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/Support1.css" rel="stylesheet" />
+
+
 
 <body>
     <div class="container">
-        <div class="jumbotron" style="background-color:transparent;padding-top:0px">
-            <span style="color:white;font-size:45px;background-color:#42cbf4;padding-top:0px;padding-bottom:0px;padding-left:0px;padding-right:0px">
+        <div class="jumbotron" style="background-color:transparent;padding-top:10px">
+            <nav aria-label="breadcrumb" style="background-color:transparent;color:white">
+                <ol class="breadcrumb" style="background-color:transparent;">
+                    <li class="breadcrumb-item" style="color:white"><a href="/Home/Index">Home</a></li>
+                    <li class="breadcrumb-item active" style="color:white" aria-current="page">Support</li>
+                </ol>
+            </nav>
+            <img src="~/Content/images/disabled-128.png" width="100" height="100" />
+            <span style="color:white;font-size:45px;background-color:#42cbf4;padding-top:0px;padding-bottom:0px;padding-left:3px;padding-right:3px">
                 Support
             </span>
         </div>
         <div>
-            <h3 class="question">Reasons young people with disability want to use this website.</h3>
-            <p class="answer">·With the age growing, you want to do extra activities and other things independently.The website provides the realated infaomation</p>
-            <p class="answer">·The operation of website is easy,such as searching information.</p>
-            <p class="answer">·The layout of website is concise.</p>
+            <h3 class="question">Why young people with disability want to this website?</h3>
+            <p class="answer">With the age growing, they want to make firends,do extra activities and other things independently.</p>
         </div>
-        <br />
         <div>
-            <h3 class="question">Functions/services providing for young people with disability or their parents on the website</h3>
-            <p class="answer">·The recommended infranstructure, services and buildings show in both table list and map based on the users'input destiantion in Melbourne CBD and prefernece.</p>
-            <p class="answer">·The different color of street represnts the different amount of people.
+            <h3 class="question">What are functions/services providing for young people with disability or their parents on the website?</h3>
+            <p class="answer">The recommended infranstructure, services and buildings show in both table list and map based on the users'input destiantion in Melbourne CBD and prefernece. @Html.ActionLink("Here", "JourneyPlanner", "Home", new { @class = "btn btn-info btn-xs" }) </p>
         </div>
-        <br />
         <div>
-            <h3 class="question">The advise for parents with disabled young people.</h3>
-            <p class="answer">·The disability people useally are less confifent. Doing things independently will increas their confidence.</p>
-            <p class="answer">·The disability people should not be isolated by the imparied mobility.</p>
-            <p class="answer">·The equally ragarding and treating to the disability people is the basic respect to them.</p>
+            <h3 class="question">Why parents should let disabled young people more independent?</h3>
+            <p class="answer">1.The disability people useally are less confifent. Doing things independently will increas their confidence.</p>
+            <p class="answer">2.The disability people should not be isolated by the imparied mobility.</p>
+            <p class="answer">3.The equally ragarding and treating to the disability people is the basic respect to them.</p>
         </div>
-        <br />
         <div>
-            <h3 class="question">The website makes the disabled young people more convenient in Melbourne CBD.</h3>
-            <p class="answer">·After typeing the destination, the nearest place, such as: infranstrcture, restaurants and etc, displaied in both map and table. Users can looke the result directly.</p>
-            <p class="answer">·The accessibility is provided, users have more oprion to plan their journey and activities in the Melbourne CBD.</p>
-            <p class="answer">·With selecting the journey day and time, the passanger flow of different streets is demonstrated with various color in the map. Therefore, users can avoid the crowded place.</p>
-        </div>        
-        <br />
+            <h3 class="question">How the website supports the disabled young people?</h3>
+            <p class="answer">1.After typeing the destination, the nearest place, such as: infranstrcture, restaurants and etc, displaied in both map and table. Users can looke the result directly.</p>
+            <p class="answer">2.The accessibility is provided, users have more oprion to plan their journey and activities in the Melbourne CBD.</p>
+            <p class="answer">3.With selecting the journey day and time, the passanger flow of different streets is demonstrated with various color in the map. Therefore, users can avoid the crowded place.</p>
+        </div>
     </div>
 </body>
