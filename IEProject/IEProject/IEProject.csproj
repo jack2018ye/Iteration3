@@ -228,6 +228,7 @@
     <Content Include="Content\images\Marlene.png" />
     <Content Include="Content\images\NewBanner.png" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
     <Content Include="Content\images\NewLogo1.png" />
@@ -243,6 +244,8 @@
     <Content Include="Content\images\person3.png" />
 >>>>>>> a1b46d3d4f3ab89dca11571262192ce08869cdb9
 >>>>>>> parent of b38fe99... Revert "Merge branch 'master' of https://github.com/jack2018ye/Iteration3"
+=======
+>>>>>>> parent of 891f518... UI Changes
     <Content Include="Content\images\womencanva2Shorter.png" />
     <Content Include="Content\LandingPage.css" />
     <Content Include="Content\leaflet.css" />
