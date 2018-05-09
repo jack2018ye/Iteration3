@@ -2,41 +2,264 @@
     ViewBag.Title = "Support";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/Support1.css" rel="stylesheet" />
+@*<link href="~/Content/Support1.css" rel="stylesheet" />*@
+
+
 
 <body>
-    <div class="container">
-        <div class="jumbotron" style="background-color:transparent;padding-top:0px">
-            <span style="color:white;font-size:45px;background-color:#42cbf4;padding-top:0px;padding-bottom:0px;padding-left:0px;padding-right:0px">
-                Support
-            </span>
+
+    <section id="pricing" class="pricing" style="margin-top:90px">
+        <div class="container">
+            <div class="row">
+                <div class="main_pricing">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="row">
+                            <div class="col-sm-8 col-xs-12">
+                                <div class="single_left_planig">
+                                    <h2>Are you growing independent ?</h2>
+                                    <p>Find information on services and support that can help you get there.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <h3 class="question">Reasons young people with disability want to use this website.</h3>
-            <p class="answer">·With the age growing, you want to do extra activities and other things independently.The website provides the realated infaomation</p>
-            <p class="answer">·The operation of website is easy,such as searching information.</p>
-            <p class="answer">·The layout of website is concise.</p>
+    </section><!-- End of Support Section -->
+
+
+
+    <section id="feature" class="feature">
+        <div class="feature_overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="main_feature_content_area">
+                        <div class="col-sm-12">
+                            <div class="heading_title text-center">
+                                <h2>Transportation and Mobility</h2>
+                                <p>Programs that can help you move around</p>
+                            </div>
+                        </div>
+                        <div class="main_feature_content text-center">
+                            <div class="col-sm-4">
+                                <div class="single_feature" style="text-align:center">
+                                    <div class="single_feature_img">
+                                        <img src="~/Content/images/wheelchair.png" alt="" />
+                                    </div>
+                                    @*<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik
+                                               </a> from <a href="https://www.flaticon.com/" title="Flaticon">
+                                            www.flaticon.com</a> is licensed by
+                                        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
+                                            CC 3.0 BY</a></div>*@
+
+                                    <div class="separator"></div>
+                                    <h3>
+                                        State-wide equipment program
+                                    </h3>
+                                </div>
+                                <div class="single_feature">
+
+                                    <p>
+                                        The Victorian State-wide Equipment Program provides people
+                                        with a permanent or long-term disability with subsidised aids
+                                        and equipment to enhance independence in their home and facilitate
+                                        community participation.
+                                        You can find more information in the<a href="https://services.dhhs.vic.gov.au/nodestatewide-equipment-progam" style="text-decoration:underline"> Victoria State Government</a> website.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_feature_content text-center">
+                            <div class="col-sm-4">
+                                <div class="single_feature" style="text-align:center">
+                                    <div class="single_feature_img">
+                                        <img src="~/Content/images/crutch.png" alt="" />
+                                        @*<div>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">
+                                                Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">
+                                                www.flaticon.com</a> is licensed by
+                                            <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
+                                                CC 3.0 BY</a></div>*@
+                                    </div>
+
+                                    <div class="separator"></div>
+                                    <h3>Find the right equipment</h3>
+                                </div>
+                                <div class="single_feature">
+
+                                    <p>
+                                        The <a href="https://ilcaustralia.org.au/search_category_paths/31" style="text-decoration:underline">
+                                            Independent Living Centres Australia
+                                        </a> has a National Equipment Database that provides information about aids and equipment options across Australia.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_feature_content text-center">
+                            <div class="col-sm-4">
+                                <div class="single_feature" style="text-align:center">
+                                    <div class="single_feature_img">
+                                        <img src="~/Content/images/taxi.png" alt="" />
+                                    </div>
+                                    @*<div>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">
+                                            Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">
+                                            www.flaticon.com</a> is licensed by
+                                        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
+                                            CC 3.0 BY</a></div>*@
+
+
+                                    <div class="separator"></div>
+                                    <h3>Transport Assistance</h3>
+                                </div>
+                                <div class="single_feature">
+
+                                    <p>
+                                        <a href="http://taxi.vic.gov.au/passengers/mptp" style="text-decoration:underline">
+                                            The Multi Purpose Taxi Program
+                                        </a> assists with the travel needs of people with severe
+                                        and permanent disabilities by offering subsidised taxi fares to members.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <br />
-        <div>
-            <h3 class="question">Functions/services providing for young people with disability or their parents on the website</h3>
-            <p class="answer">·The recommended infranstructure, services and buildings show in both table list and map based on the users'input destiantion in Melbourne CBD and prefernece.</p>
-            <p class="answer">·The different color of street represnts the different amount of people.
+    </section>
+
+    <section id="feature" class="feature">
+        <div class="feature_overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="main_feature_content_area">
+                        <div class="col-sm-12">
+                            <div class="heading_title text-center">
+                                <h2>Community Participation and Integration</h2>
+                                <p>Find programs that can help you participate in your community.</p>
+                            </div>
+                        </div>
+                        <div class="main_feature_content text-center">
+                            <div class="col-sm-4">
+                                <div class="single_feature" style="text-align:center">
+                                    <div class="single_feature_img">
+                                        <img src="~/Content/images/job.png" alt="" />
+                                    </div>
+                                    @*<div>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">
+                                            Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">
+                                            www.flaticon.com</a> is licensed by
+                                        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
+                                            CC 3.0 BY</a></div>*@
+
+                                    <div class="separator"></div>
+                                    <h3>Employability</h3>
+                                </div>
+                                <div class="single_feature">
+
+                                    <p>
+                                        <a href="https://services.dhhs.vic.gov.au/community-life-and-jobs" style="text-decoration:underline">
+                                            The Victoria State Government
+                                        </a>
+                                        offers several programs that aims to assist young people with a
+                                        disability to transition from high school to adult life.
+                                        These programs include further education, training and employment.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_feature_content text-center">
+                            <div class="col-sm-4">
+                                <div class="single_feature" style="text-align:center">
+                                    <div class="single_feature_img">
+                                        <img src="~/Content/images/basketball.png" alt="" />
+                                    </div>
+                                    @*<div>Icons made by
+                                        <a href="https://www.flaticon.com/authors/popcorns-arts" title="Icon Pond">
+                                            Icon Pond</a> from <a href="https://www.flaticon.com/" title="Flaticon">
+                                            www.flaticon.com</a> is licensed by
+                                        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
+                                            CC 3.0 BY</a></div>*@
+
+                                    <div class="separator"></div>
+                                    <h3>Disability and Sports</h3>
+                                </div>
+                                <div class="single_feature">
+                                    <p>
+                                        <a href="http://www.vewsa.com.au/" style="text-decoration:underline">
+                                            The Victorian Electric Wheelchair Sports Association
+                                        </a>provides sport and recreational activities for people
+                                        who use a powerchair for functional mobility.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_feature_content text-center">
+                            <div class="col-sm-4">
+                                <div class="single_feature" style="text-align:center">
+                                    <div class="single_feature_img">
+                                        <img src="~/Content/images/tent.png" alt="" />
+                                    </div>
+                                    @*<div>Icons made by <a href="http://www.freepik.com" title="Freepik">
+                                            Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">
+                                            www.flaticon.com</a> is licensed by
+                                        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
+                                            CC 3.0 BY</a></div>*@
+
+                                    <div class="separator"></div>
+                                    <h3>Outdoors</h3>
+                                </div>
+                                <div class="single_feature">
+                                    <p>
+                                        <a href="http://www.peopleoutdoors.org.au/" style="text-decoration:underline">
+                                            People Outdoors
+                                        </a>
+                                        is a division of the Australian Camps Association
+                                        provides outdoor recreation for people of all ages with physical or intellectual disabilities.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <br />
-        <div>
-            <h3 class="question">The advise for parents with disabled young people.</h3>
-            <p class="answer">·The disability people useally are less confifent. Doing things independently will increas their confidence.</p>
-            <p class="answer">·The disability people should not be isolated by the imparied mobility.</p>
-            <p class="answer">·The equally ragarding and treating to the disability people is the basic respect to them.</p>
-        </div>
-        <br />
-        <div>
-            <h3 class="question">The website makes the disabled young people more convenient in Melbourne CBD.</h3>
-            <p class="answer">·After typeing the destination, the nearest place, such as: infranstrcture, restaurants and etc, displaied in both map and table. Users can looke the result directly.</p>
-            <p class="answer">·The accessibility is provided, users have more oprion to plan their journey and activities in the Melbourne CBD.</p>
-            <p class="answer">·With selecting the journey day and time, the passanger flow of different streets is demonstrated with various color in the map. Therefore, users can avoid the crowded place.</p>
-        </div>        
-        <br />
-    </div>
+    </section>
+
+
+
+
+
+
+
+
+    @*<div class="container">
+            <div class="jumbotron" style="background-color:transparent;padding-top:0px">
+            </div>
+            <div>
+                <h3 class="question">Reasons young people with disability want to use this website.</h3>
+                <p class="answer">·With the age growing, you want to do extra activities and other things independently.The website provides the realated infaomation</p>
+                <p class="answer">·The operation of website is easy,such as searching information.</p>
+                <p class="answer">·The layout of website is concise.</p>
+            </div>
+            <br />
+            <div>
+                <h3 class="question">Functions/services providing for young people with disability or their parents on the website</h3>
+                <p class="answer">·The recommended infranstructure, services and buildings show in both table list and map based on the users'input destiantion in Melbourne CBD and prefernece.</p>
+                <p class="answer">·The different color of street represnts the different amount of people.
+            </div>
+            <br />
+            <div>
+                <h3 class="question">The advise for parents with disabled young people.</h3>
+                <p class="answer">·The disability people useally are less confifent. Doing things independently will increas their confidence.</p>
+                <p class="answer">·The disability people should not be isolated by the imparied mobility.</p>
+                <p class="answer">·The equally ragarding and treating to the disability people is the basic respect to them.</p>
+            </div>
+            <br />
+            <div>
+                <h3 class="question">The website makes the disabled young people more convenient in Melbourne CBD.</h3>
+                <p class="answer">·After typeing the destination, the nearest place, such as: infranstrcture, restaurants and etc, displaied in both map and table. Users can looke the result directly.</p>
+                <p class="answer">·The accessibility is provided, users have more oprion to plan their journey and activities in the Melbourne CBD.</p>
+                <p class="answer">·With selecting the journey day and time, the passanger flow of different streets is demonstrated with various color in the map. Therefore, users can avoid the crowded place.</p>
+            </div>
+            <br />
+        </div>*@
 </body>

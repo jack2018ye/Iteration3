@@ -2,37 +2,26 @@
 @Styles.Render("~/Content/leaflet.css")
 
 @{
-        ViewBag.Title = "JourneyPlanner";
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
+    ViewBag.Title = "JourneyPlanner";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <link href="~/Content/ServicePage.css" rel="stylesheet" />
 <link href="~/Content/pace-theme-flat-top.css" rel="stylesheet" />
 <style>
-    #mapid{
-
-
-      height: 550px;
-      width:550px;
-      position:relative;
-      left:60px;
-
-      bottom:780px;
-
+    #mapid {
+        height: 550px;
+        width: 550px;
+        position: relative;
+        left: 60px;
+        bottom: 780px;
     }
-
-
 </style>
 <body>
 
     <div class="container">
 
         <div class="jumbotron" style="background-color:transparent;padding-top:10px">
-            <nav aria-label="breadcrumb" style="background-color:transparent;color:white">
-                <ol class="breadcrumb" style="background-color:transparent;">
-                    <li class="breadcrumb-item" style="color:white"><a href="/Home/Index">Home</a></li>
-                    <li class="breadcrumb-item active" style="color:white" aria-current="page">Journey Planner</li>
-                </ol>
-            </nav>
+
 
             <img src="~/Content/images/disabled-128.png" width="100" height="100" />
             <span style="color:white;font-size:45px;padding-top:0px;padding-bottom:0px;padding-left:3px;padding-right:3px">
@@ -40,401 +29,404 @@
             </span>
 
             @using (Html.BeginForm("JourneyPlanner", "Home", FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
-               
-                <div class="container" style="margin-right:100px" id="content2">
-                    <div class="form-group" style="width:700px">
-<div class="panel panel-default">
-    <div class="panel-body">
-        <h5 class="text-center">
-            Where are you going?
-        </h5>
+    {
+        @Html.AntiForgeryToken()
+            <div class="img-responsive" style="margin-bottom:30px">
+                <div class="container" @*style="margin-right:100px"*@ id="content2">
+                    <div class="form-group" @*style="width:700px"*@>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h5 class="text-center">
+                                    Where are you going?
+                                </h5>
 
-       
-              <div class="col-md-10">
-                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-                            <div style="background-color:white;margin-top:15px;padding-left:15px">
-                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                    <div style="background-color:white;margin-top:15px;padding-left:15px">
+                                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="container" style="font-size:10px">
+                                    <form style="color:black" id="servicesForm">
+                                        <div class="parent">
+                                            <div class="col-sm-4">
+                                                <h5 style="color:black">How are you travelling?</h5>
+                                                <hr />
+
+                                                <div style="color:black">
+                                                    @Html.CheckBoxFor(m => m.cartick)
+                                                    @Html.Label("Car")
+                                                </div>
+
+                                                <div style="color:black">
+
+
+                                                    @Html.CheckBoxFor(m => m.traintick)
+                                                    @Html.Label("Train")
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <h5 style="color:black">Services</h5>
+                                                <hr />
+                                                <div style="color:black">
+                                                    @Html.CheckBoxFor(m => m.toilettick)
+                                                    @Html.Label("Public Toilet")
+                                                </div>
+                                                <div id="others">
+                                                    <div style="color:black">
+                                                        @Html.CheckBoxFor(m => m.accomodationselect)
+                                                        @Html.Label("Accomodation")
+
+                                                    </div>
+
+                                                    <div style="color:black">
+                                                        @Html.CheckBoxFor(m => m.hairdressingselect)
+
+                                                        @Html.Label("Hairdressing and Beauty Services")
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+
+                                                <h5 style="color:black">Food and Drinks</h5>
+                                                <hr />
+                                                <div id="others">
+                                                    <div style="color:black">
+                                                        @Html.CheckBoxFor(m => m.barselect)
+                                                        @Html.Label("Pubs, Taverns and Bars")
+
+                                                    </div>
+                                                    <div style="color:black">
+                                                        @Html.CheckBoxFor(m => m.cafeselect)
+                                                        @Html.Label("Cafes and Restaurants")
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <h5 style="color:black">Shopping</h5>
+                                                <hr />
+                                                <div id="others">
+                                                    <div style="color:black">
+                                                        @Html.CheckBoxFor(m => m.retailselect)
+                                                        @Html.Label("Clothing Retailing")
+
+                                                    </div>
+                                                    <div style="color:black">
+                                                        @Html.CheckBoxFor(m => m.supermarketselect)
+                                                        @Html.Label("Supermarket and Grocery Stores")
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Search</button>
                             </div>
-                        </div>
-        <br />
-      
-        <div class="container" style="font-size:10px">
-            <form style="color:black" id="servicesForm">
-                <div class="parent">
-                    <div class="col-sm-4">
-                        <h5 style="color:black">How are you travelling?</h5>
-                        <hr />
-
-                        <div style="color:black">
-                            @Html.CheckBoxFor(m => m.cartick)
-                            @Html.Label("Car")
-                        </div>
-
-                        <div style="color:black">
-
-
-                            @Html.CheckBoxFor(m => m.traintick)
-                            @Html.Label("Train")
                         </div>
                     </div>
-                    <div class="col-md-5">
-                        <h5 style="color:black">Services</h5>
-                        <hr />
-                        <div style="color:black">
-                            @Html.CheckBoxFor(m => m.toilettick)
-                            @Html.Label("Public Toilet")
-                        </div>
-                        <div id="others">
-                            <div style="color:black">
-                                @Html.CheckBoxFor(m => m.accomodationselect)
-                                @Html.Label("Accomodation")
+                    
+                </div>            
+            </div>
+            
+                        
 
-                            </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
 
-                            <div style="color:black">
-                                @Html.CheckBoxFor(m => m.hairdressingselect)
 
-                                @Html.Label("Hairdressing and Beauty Services")
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
 
-                        <h5 style="color:black">Food and Drinks</h5>
-                        <hr />
-                        <div id="others">
-                            <div style="color:black">
-                                @Html.CheckBoxFor(m => m.barselect)
-                                @Html.Label("Pubs, Taverns and Bars")
 
-                            </div>
-                            <div style="color:black">
-                                @Html.CheckBoxFor(m => m.cafeselect)
-                                @Html.Label("Cafes and Restaurants")
 
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <h5 style="color:black">Shopping</h5>
-                        <hr />
-                        <div id="others">
-                            <div style="color:black">
-                                @Html.CheckBoxFor(m => m.retailselect)
-                                @Html.Label("Clothing Retailing")
-
-                            </div>
-                            <div style="color:black">
-                                @Html.CheckBoxFor(m => m.supermarketselect)
-                                @Html.Label("Supermarket and Grocery Stores")
-
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
                 </div>
 
-            </form>
-           
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.select, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.select, "", new { @class = "text-danger" })
+                </div>
+
+
+
+
+                <br />
+                <br />
+
+
+
+
+
+
+
+
+            @*</div>*@
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="margin-top:20px">
+                    <input type="button" value="Print Journey Planner" class="btn btn-warning btn-min-block btn-lg" id="pdf" />
+                </div>
             </div>
 
-   
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Search</button>
-        </div>
-   
-   
-                    </div>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+
+        @*</div>*@
+        <br />
 
 
-                     
+        <div id="content" class="img-responsive">
+            <div id="mapid" class="img-responsive"></div>
+            <div id="print" style="margin-left:640px">
 
-                  
-
-                    <div class="col-md-10">
-                        @Html.HiddenFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
-                    </div>
-
-                    <div class="col-md-10">
-                        @Html.HiddenFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="col-md-10">
-                        @Html.HiddenFor(model => model.select, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.select, "", new { @class = "text-danger" })
-                    </div>
-
-
-                    
-
+                <div style="background-color:white;font-size:10px">
+                    @Html.Label("This is a journey planner")
                     <br />
+                    @Html.Label("You destination is")
+                    @Html.Label("not selected yet", @Model.Address)
                     <br />
-                 
-
-                 
-
-
-
-
-
-                    </div>
-                    <br />
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10" style="margin-top:20px">
-                            <input type="button" value="Print Journey Planner" class="btn btn-warning btn-min-block btn-lg" id="pdf" />
-                        </div>
-                    </div>
-
-
+                    @Html.Label("The information are locations nearest to  your destination.")
                 </div>
                 <br />
-                
-             
-                <div id="content" >
-                    <div id="mapid"></div>
-                    <div id="print" style="margin-left:640px">
-                      
-                        <div style="background-color:white;font-size:10px">
-                            @Html.Label("This is a journey planner")
-                            <br />
-                            @Html.Label("You destination is")
-                            @Html.Label("not selected yet", @Model.Address)
-                            <br />
-                            @Html.Label("The information are locations nearest to  your destination.")
-                        </div>
-                        <br />
 
-                        <div id="let" style="display:none">
-                            <table id="data" font color="#FFFFFF" style="font-size:10px" class="table">
+                <div id="let" style="display:none">
+                    <table id="data" font color="#FFFFFF" style="font-size:10px" class="table">
 
-                                <thead>
-                                    <tr>
+                        <thead>
+                            <tr>
 
 
-                                        <th>
-                                            @Html.Label(" Toilet Address", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-                                        <th>
-                                            @Html.Label(" Wheelchair", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-                                        <th>
-                                            @Html.Label(" Male", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-                                        <th>
-                                            @Html.Label(" Female", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
+                                <th>
+                                    @Html.Label(" Toilet Address", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+                                <th>
+                                    @Html.Label(" Wheelchair", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+                                <th>
+                                    @Html.Label(" Male", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+                                <th>
+                                    @Html.Label(" Female", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
 
-                                        <th>
-                                            @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
+                                <th>
+                                    @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
 
-                                        <th></th>
+                                <th></th>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var element in Model.sorttoilets)
-                {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(m => element.address)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(m => element.wheelchair)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(m => element.male)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(m => element.female)
-                                            </td>
-
-                                            <td>
-                                                @Html.DisplayFor(m => element.distance)
-                                            </td>
-
-
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div id="train" style="display:none">
-                            <table id="data2" font color="#FFFFFF" style="font-size:10px" class="table">
-
-                                <thead>
-                                    <tr>
-
-
-                                        <th>
-                                            @Html.Label("Station", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-                                        <th>
-                                            @Html.Label("Lift Present", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-                                        <th>
-                                            @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-
-                                        <th></th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var element in Model.sorttrains)
-                {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(m => element.name)
-                                            </td>
-
-                                            <td>
-                                                @Html.DisplayFor(m => element.lift)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(m => element.distance)
-                                            </td>
-
-
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div id="b1" style="display:none">
-                            <table id="data3" font color="#FFFFFF" style="font-size:10px" class="table">
-
-                                <thead>
-                                    <tr>
-
-                                        <th>
-                                            @Html.Label("Trade Name", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-                                        <th>
-                                            @Html.Label("Industry Description", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-                                        <th>
-                                            @Html.Label("Accessibility Description", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-                                        <th>
-                                            @Html.Label("Establishment Address", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-
-
-
-
-
-                                        <th>
-                                            @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-
-                                        <th></th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var element in Model.sortbuildings)
-                {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(m => element.type)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(m => element.industrydesc)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(m => element.accessdesc)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(m => element.address)
-                                            </td>
-
-
-
-
-
-
-
-                                            <td>
-                                                @Html.DisplayFor(m => element.distance)
-                                            </td>
-
-
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                        <div id="car" style="display:none">
-                            <table id="data4" font color="#FFFFFF" style="font-size:10px" class="table">
-
-                                <thead>
-                                    <tr>
-
-
-                                        <th>
-                                            @Html.Label("Parking BayId", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-                                        <th>
-                                            @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        </th>
-
-
-                                        <th></th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var element in Model.sortparkingspots)
-                {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(m => element.id)
-                                            </td>
-
-
-                                            <td>
-                                                @Html.DisplayFor(m => element.distance)
-                                            </td>
-
-
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                @*<div class="container" style="margin-left:40px" id="data">
-                        <ul class="list-group">
+                            </tr>
+                        </thead>
+                        <tbody>
                             @foreach (var element in Model.sorttoilets)
-                        {
-                                <li class="list-group-item">@Html.DisplayFor(m => element.name)<span class="badge">@Html.DisplayFor(m => element.distance) meters</span></li>
-                            }
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => element.address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => element.wheelchair)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => element.male)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => element.female)
+                            </td>
 
-                        </ul>
-                    </div>*@
+                            <td>
+                                @Html.DisplayFor(m => element.distance)
+                            </td>
 
 
-
-
-
+                        </tr>
             }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="train" style="display:none">
+                    <table id="data2" font color="#FFFFFF" style="font-size:10px" class="table">
+
+                        <thead>
+                            <tr>
+
+
+                                <th>
+                                    @Html.Label("Station", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+                                <th>
+                                    @Html.Label("Lift Present", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+                                <th>
+                                    @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var element in Model.sorttrains)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => element.name)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(m => element.lift)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => element.distance)
+                            </td>
+
+
+                        </tr>
+            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="b1" style="display:none">
+                    <table id="data3" font color="#FFFFFF" style="font-size:10px" class="table">
+
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    @Html.Label("Trade Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+                                <th>
+                                    @Html.Label("Industry Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+                                <th>
+                                    @Html.Label("Accessibility Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+                                <th>
+                                    @Html.Label("Establishment Address", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+
+
+
+
+
+                                <th>
+                                    @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var element in Model.sortbuildings)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => element.type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => element.industrydesc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => element.accessdesc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => element.address)
+                            </td>
+
+
+
+
+
+
+
+                            <td>
+                                @Html.DisplayFor(m => element.distance)
+                            </td>
+
+
+                        </tr>
+            }
+                        </tbody>
+                    </table>
+                </div>
+                <div id="car" style="display:none">
+                    <table id="data4" font color="#FFFFFF" style="font-size:10px" class="table">
+
+                        <thead>
+                            <tr>
+
+
+                                <th>
+                                    @Html.Label("Parking BayId", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+                                <th>
+                                    @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
+                                </th>
+
+
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var element in Model.sortparkingspots)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => element.id)
+                            </td>
+
+
+                            <td>
+                                @Html.DisplayFor(m => element.distance)
+                            </td>
+
+
+                        </tr>
+            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        @*<div class="container" style="margin-left:40px" id="data">
+        <ul class="list-group">
+            @foreach (var element in Model.sorttoilets)
+        {
+                <li class="list-group-item">@Html.DisplayFor(m => element.name)<span class="badge">@Html.DisplayFor(m => element.distance) meters</span></li>
+            }
+
+        </ul>
+    </div>*@
+
+
+
+
+
+}
 
         </div>
     </div>
@@ -458,7 +450,7 @@
     @Scripts.Render("~/Scripts/refresh.js")
     @Scripts.Render("~/Scripts/pace.js")
     @Scripts.Render("~/Scripts/leaflet.js")
-<script>
+    <script>
     var lat = JSON.parse('@Html.Raw(Json.Encode(@Model.Latitude))');
     var lon = JSON.parse('@Html.Raw(Json.Encode(@Model.Longitude))');
     var address = JSON.parse('@Html.Raw(Json.Encode(@Model.Address))');
@@ -542,7 +534,7 @@
 
     for (var i = 0; i < stations.length; i++) {
         var marker = L.marker([stations[i].lat, stations[i].lon], { icon: blackIcon }).addTo(mymap);
-  
+
 
         marker.bindPopup("Distance: " + stations[i].distance + '<br>' + "Train Station : " + stations[i].name).openPopup();
     }
@@ -568,7 +560,7 @@
 
 
 
-</script>
+    </script>
 }
 
 }
