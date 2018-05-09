@@ -103,18 +103,8 @@ namespace IEProject.Models
         public bool traintick { get; set; }
         public bool toilettick { get; set; }
 
-        public string hour { get; set; }
-        public string day { get; set; }
-
-        public IEnumerable<SelectListItem> hours { get; set; }
-        public IEnumerable<SelectListItem> days { get; set; }
-
-        public  List<PedestrianVolume> pedestrians { get; set; }
-
-
-    public PublicToiletForm()
+        public PublicToiletForm()
         {
-           pedestrians= new List<PedestrianVolume>();
             toilets = new List<PublicToilet>();
             sorttoilets = new List<ToiletNearby>();
             stations = new List<TrainStation>();
@@ -131,7 +121,5 @@ namespace IEProject.Models
 
 
         }
-
-
     }
 }

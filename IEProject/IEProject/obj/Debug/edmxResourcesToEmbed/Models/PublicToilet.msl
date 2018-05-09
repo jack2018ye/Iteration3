@@ -59,19 +59,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PedestrianVolumes">
-      <EntityTypeMapping TypeName="AccessibilityEntitiesModel.PedestrianVolume">
-        <MappingFragment StoreEntitySet="PedestrianVolume">
-          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-          <ScalarProperty Name="Coordinates" ColumnName="Coordinates" />
-          <ScalarProperty Name="HoursCount" ColumnName="HoursCount" />
-          <ScalarProperty Name="Time" ColumnName="Time" />
-          <ScalarProperty Name="Day" ColumnName="Day" />
-          <ScalarProperty Name="Sensor_ID" ColumnName="Sensor_ID" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

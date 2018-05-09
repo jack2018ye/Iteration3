@@ -31,19 +31,6 @@
           <Property Name="location" Type="nvarchar" MaxLength="150" />
           <Property Name="des_dis_ext" Type="nvarchar" MaxLength="150" />
         </EntityType>
-        <EntityType Name="PedestrianVolume">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Sensor_ID" Type="float" />
-          <Property Name="Day" Type="varchar" MaxLength="20" />
-          <Property Name="Time" Type="int" />
-          <Property Name="HoursCount" Type="int" />
-          <Property Name="Coordinates" Type="varchar" MaxLength="41" />
-          <Property Name="Latitude" Type="float" />
-          <Property Name="Longitude" Type="float" />
-        </EntityType>
         <EntityType Name="PublicToilet">
           <Key>
             <PropertyRef Name="Id" />
@@ -75,7 +62,6 @@
         <EntityContainer Name="AccessibilityEntitiesModelStoreContainer">
           <EntitySet Name="buildings" EntityType="Self.buildings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Parking" EntityType="Self.Parking" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PedestrianVolume" EntityType="Self.PedestrianVolume" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PublicToilet" EntityType="Self.PublicToilet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrainStation" EntityType="Self.TrainStation" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -105,7 +91,6 @@
           <EntitySet Name="buildings" EntityType="AccessibilityEntitiesModel.building" />
           <EntitySet Name="TrainStations" EntityType="AccessibilityEntitiesModel.TrainStation" />
           <EntitySet Name="Parkings" EntityType="AccessibilityEntitiesModel.Parking" />
-          <EntitySet Name="PedestrianVolumes" EntityType="AccessibilityEntitiesModel.PedestrianVolume" />
         </EntityContainer>
         <EntityType Name="building">
           <Key>
@@ -143,19 +128,6 @@
           <Property Name="area" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="des_dis_ext" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="PedestrianVolume">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Sensor_ID" Type="Double" />
-          <Property Name="Day" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Time" Type="Int32" />
-          <Property Name="HoursCount" Type="Int32" />
-          <Property Name="Coordinates" Type="String" MaxLength="41" FixedLength="false" Unicode="false" />
-          <Property Name="Latitude" Type="Double" />
-          <Property Name="Longitude" Type="Double" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -217,20 +189,6 @@
                 <ScalarProperty Name="lon" ColumnName="lon" />
                 <ScalarProperty Name="lat" ColumnName="lat" />
                 <ScalarProperty Name="BayId" ColumnName="BayId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PedestrianVolumes">
-            <EntityTypeMapping TypeName="AccessibilityEntitiesModel.PedestrianVolume">
-              <MappingFragment StoreEntitySet="PedestrianVolume">
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="Coordinates" ColumnName="Coordinates" />
-                <ScalarProperty Name="HoursCount" ColumnName="HoursCount" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="Day" ColumnName="Day" />
-                <ScalarProperty Name="Sensor_ID" ColumnName="Sensor_ID" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

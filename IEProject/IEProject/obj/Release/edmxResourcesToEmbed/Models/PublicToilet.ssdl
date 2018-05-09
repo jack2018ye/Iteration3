@@ -26,19 +26,6 @@
     <Property Name="location" Type="nvarchar" MaxLength="150" />
     <Property Name="des_dis_ext" Type="nvarchar" MaxLength="150" />
   </EntityType>
-  <EntityType Name="PedestrianVolume">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Sensor_ID" Type="float" />
-    <Property Name="Day" Type="varchar" MaxLength="20" />
-    <Property Name="Time" Type="int" />
-    <Property Name="HoursCount" Type="int" />
-    <Property Name="Coordinates" Type="varchar" MaxLength="41" />
-    <Property Name="Latitude" Type="float" />
-    <Property Name="Longitude" Type="float" />
-  </EntityType>
   <EntityType Name="PublicToilet">
     <Key>
       <PropertyRef Name="Id" />
@@ -70,7 +57,6 @@
   <EntityContainer Name="AccessibilityEntitiesModelStoreContainer">
     <EntitySet Name="buildings" EntityType="Self.buildings" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Parking" EntityType="Self.Parking" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PedestrianVolume" EntityType="Self.PedestrianVolume" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PublicToilet" EntityType="Self.PublicToilet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TrainStation" EntityType="Self.TrainStation" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
