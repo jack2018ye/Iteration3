@@ -485,7 +485,7 @@
     var lon = JSON.parse('@Html.Raw(Json.Encode(@Model.Longitude))');
 
     var address = JSON.parse('@Html.Raw(Json.Encode(@Model.Address))');
-    if (address == null) {
+    if (address == null || address == "") {
         lat = -37.8136;
         lon = 144.9631;
     }
