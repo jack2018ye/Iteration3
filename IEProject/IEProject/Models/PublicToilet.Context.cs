@@ -29,5 +29,6 @@ namespace IEProject.Models
         public virtual DbSet<building> buildings { get; set; }
         public virtual DbSet<TrainStation> TrainStations { get; set; }
         public virtual DbSet<Parking> Parkings { get; set; }
+        public virtual DbSet<PedestrianVolume> PedestrianVolumes { get; set; }
     }
 }

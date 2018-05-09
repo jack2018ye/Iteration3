@@ -157,6 +157,9 @@
       <DependentUpon>PublicToilet.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ParkingNearby.cs" />
+    <Compile Include="Models\PedestrianVolume.cs">
+      <DependentUpon>PublicToilet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PublicToilet1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,6 +227,22 @@
     <Content Include="Content\images\marker-shadow.png" />
     <Content Include="Content\images\Marlene.png" />
     <Content Include="Content\images\NewBanner.png" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <Content Include="Content\images\NewLogo1.png" />
+    <Content Include="Content\images\NewLogo2.png" />
+    <Content Include="Content\images\NewLogo3.png" />
+    <Content Include="Content\images\original_image_flipped.jpg" />
+    <Content Include="Content\images\taxi.png" />
+    <Content Include="Content\images\tent.png" />
+    <Content Include="Content\images\wheelchair.png" />
+=======
+    <Content Include="Content\images\person1.png" />
+    <Content Include="Content\images\person2.png" />
+    <Content Include="Content\images\person3.png" />
+>>>>>>> a1b46d3d4f3ab89dca11571262192ce08869cdb9
+>>>>>>> parent of b38fe99... Revert "Merge branch 'master' of https://github.com/jack2018ye/Iteration3"
     <Content Include="Content\images\womencanva2Shorter.png" />
     <Content Include="Content\LandingPage.css" />
     <Content Include="Content\leaflet.css" />
