@@ -25,7 +25,6 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -195,13 +194,11 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonticons.css" />
     <Content Include="Content\images\Banner7NoContrast.png" />
-    <Content Include="Content\images\basketball.png" />
     <Content Include="Content\images\c1.jpg" />
     <Content Include="Content\images\c2.jpg" />
     <Content Include="Content\images\c3.jpg" />
     <Content Include="Content\images\c4.jpg" />
     <Content Include="Content\images\cl1.jpg" />
-    <Content Include="Content\images\crutch.png" />
     <Content Include="Content\images\cutmypic.png" />
     <Content Include="Content\images\disabled-128.png" />
     <Content Include="Content\images\featurebg.png" />
@@ -209,12 +206,9 @@
     <Content Include="Content\images\ft2.png" />
     <Content Include="Content\images\ft3.png" />
     <Content Include="Content\images\ft4.png" />
-    <Content Include="Content\images\HomeBanner.png" />
     <Content Include="Content\images\homebg.jpg" />
     <Content Include="Content\images\icon1.png" />
     <Content Include="Content\images\ii1.png" />
-    <Content Include="Content\images\iphone.png" />
-    <Content Include="Content\images\job.png" />
     <Content Include="Content\images\Ken.png" />
     <Content Include="Content\images\lancy.png" />
     <Content Include="Content\images\layers-2x.png" />
@@ -224,20 +218,12 @@
     <Content Include="Content\images\Logo1.svg" />
     <Content Include="Content\images\Logo2.png" />
     <Content Include="Content\images\Logo3.png" />
-    <Content Include="Content\images\macbook.png" />
     <Content Include="Content\images\mapbg.png" />
     <Content Include="Content\images\marker-icon-2x.png" />
     <Content Include="Content\images\marker-icon.png" />
     <Content Include="Content\images\marker-shadow.png" />
     <Content Include="Content\images\Marlene.png" />
     <Content Include="Content\images\NewBanner.png" />
-    <Content Include="Content\images\NewLogo1.png" />
-    <Content Include="Content\images\NewLogo2.png" />
-    <Content Include="Content\images\NewLogo3.png" />
-    <Content Include="Content\images\original_image_flipped.jpg" />
-    <Content Include="Content\images\taxi.png" />
-    <Content Include="Content\images\tent.png" />
-    <Content Include="Content\images\wheelchair.png" />
     <Content Include="Content\images\womencanva2Shorter.png" />
     <Content Include="Content\LandingPage.css" />
     <Content Include="Content\leaflet.css" />
@@ -316,10 +302,6 @@
     <Content Include="fonts\sanchez-regular.ttf" />
     <Content Include="fonts\sanchez-regular.woff" />
     <Content Include="fonts\sanchez-regular.woff2" />
-    <Content Include="fonts\themify.ttf" />
-    <Content Include="fonts\themify.woff" />
-    <Content Include="fonts\icomoon.ttf" />
-    <Content Include="fonts\icomoon.woff" />
     <None Include="Properties\PublishProfiles\disability - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\disability - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\disability - Web Deploy %282%29.pubxml" />
