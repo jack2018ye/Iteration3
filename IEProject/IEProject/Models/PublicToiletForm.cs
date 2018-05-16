@@ -14,6 +14,7 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -89,19 +90,30 @@ namespace IEProject.Models
 
         public List<building> buildings { get; set; }
 
+        [DisplayName("Pubs, Taverns and Bars")]
         public bool barselect { get; set; }
+        [DisplayName("Clothing Retailing")]
         public bool retailselect { get; set; }
+        [DisplayName("Cafes and Restaurants")]
         public bool cafeselect { get; set; }
+        [DisplayName("Supermarket and Grocery Stores")]
         public bool supermarketselect { get; set; }
 
-       
+      
         public bool entertainmentselect { get; set; }
+      
         public bool convenienceselect { get; set; }
+        [DisplayName("Accomodation")]
         public bool accomodationselect { get; set; }
+        [DisplayName("Hairdressing and Beauty Services")]
         public bool hairdressingselect { get; set; }
+        [DisplayName("Car")]
         public bool cartick { get; set; }
+        [DisplayName("Train")]
         public bool traintick { get; set; }
+        [DisplayName("Public Toilet")]
         public bool toilettick { get; set; }
+
 
         public string hour { get; set; }
         public string day { get; set; }
