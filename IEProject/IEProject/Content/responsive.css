@@ -18,10 +18,7 @@ Author URI: http://bootstrapthemes.co
     .main_home_searce_domain_content input[type="text"] {
         min-width: 14.1875rem;
     }
-    .form-control {
-        width: 5.125rem;
-        padding: 5px;
-    }
+    
     .main_home_searce_domain_content input[type="submit"] {
         max-width: 8.6875rem;
         padding: 0px 7px;
@@ -50,12 +47,7 @@ Author URI: http://bootstrapthemes.co
         min-width: 10.1875rem;
         font-size: 0.875rem;
     }
-    .form-control {
-        width: 4.125rem;
-        height: 56px;
-        font-size: 0.875rem;
-        padding: 2px;
-    }    
+    
     .main_home_searce_domain_content input[type="submit"] {
         max-width: 6.6875rem;
         height: 56px;

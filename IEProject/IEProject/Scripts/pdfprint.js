@@ -31,30 +31,50 @@
 
 //    });
 //});
-$('#pdf').click(function () {
-    var doc = new jsPDF('p', 'mm', [900, 210]);
-    doc.addHTML($('#print'), 0  , 15, function() {
+//$('#pdf').click(function () {
+//    var doc = new jsPDF();
+//    doc.setFillColor(255, 255, 255, 255);
+
+//    doc.addHTML($('#'), 0  , 15, function() {
 
         
-        doc.save('journeyplanner.pdf');
-    });
-});
-
-
-//$('#pdf').click(function () {
-//    var doc = new jspdf('p', 'pt');
-//    var elem = document.getElementById("data");
-//    var res = doc.autoTableHtmlToJson(elem);
-//    var elem2 = document.getElementById("data2");
-//    var res2 = doc.autoTableHtmlToJson(elem2);
-//    var elem3 = document.getElementById("data3");
-//    var res3 = doc.autoTableHtmlToJson(elem3);
-//    var elem4 = document.getElementById("data4");
-//    var res4 = doc.autoTableHtmlToJson(elem4);
-//    doc.autoTable(res.columns, res.data);
-//    doc.autoTable(res2.columns, res2.data);
-//    doc.autoTable(res3.columns, res3.data);
-//    doc.autoTable(res4.columns, res4.data);
-//    doc.save("toilets.pdf");
+//        doc.save('journeyplanner.pdf');
+//    });
 //});
+
+
+$('#pdf').click(function () {
+    var doc = new jsPDF('l', 'mm', [297, 210]);
+   
+    var elem = document.getElementById("data");
+    var res = doc.autoTableHtmlToJson(elem);
+    var elem2 = document.getElementById("data2");
+    var res2 = doc.autoTableHtmlToJson(elem2);
+    var elem3 = document.getElementById("data3");
+    var res3 = doc.autoTableHtmlToJson(elem3);
+    var elem4 = document.getElementById("data4");
+    var res4 = doc.autoTableHtmlToJson(elem4);
+   
+
+    doc.autoTable(res.columns, res.data, {
+        startY: 20,
+        margin: { horizontal: 7 },
+        styles: { overflow: 'hidden', columnWidth: 'wrap' },
+        columnStyles: { text: { columnWidth: 'auto' } }
+    });
+    doc.autoTable(res2.columns, res2.data, {
+        startY: doc.autoTable.previous.finalY + 15,
+        margin: { horizontal: 7 },
+        styles: { overflow: 'hidden', columnWidth: 'wrap' },
+        columnStyles: { text: { columnWidth: 'auto' } }
+    });
+    doc.autoTable(res3.columns, res3.data, {
+        startY: doc.autoTable.previous.finalY + 15,
+        margin: { horizontal: 7 },
+        styles: { overflow: 'hidden', columnWidth: 'wrap' },
+        columnStyles: { text: { columnWidth: 'auto' } }
+    });
+   
+    doc.save("Services.pdf");
+});
 

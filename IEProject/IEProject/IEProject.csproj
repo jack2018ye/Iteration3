@@ -798,6 +798,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonticons.css" />
     <Content Include="Content\images\accomodation.png" />
+    <Content Include="Content\images\bag.png" />
     <Content Include="Content\images\Banner7NoContrast.png" />
     <Content Include="Content\images\basketball.png" />
     <Content Include="Content\images\beer.png" />
@@ -807,6 +808,7 @@
     <Content Include="Content\images\c4.jpg" />
     <Content Include="Content\images\cl1.jpg" />
     <Content Include="Content\images\clothes.png" />
+    <Content Include="Content\images\cocktail.png" />
     <Content Include="Content\images\crutch.png" />
     <Content Include="Content\images\cutmypic.png" />
     <Content Include="Content\images\disabled-128.png" />
@@ -816,7 +818,11 @@
     <Content Include="Content\images\ft3.png" />
     <Content Include="Content\images\ft4.png" />
     <Content Include="Content\images\groceries.png" />
+    <Content Include="Content\images\grocery.png" />
+    <Content Include="Content\images\group-of-men-running.png" />
+    <Content Include="Content\images\group-of-men.png" />
     <Content Include="Content\images\hair-dryer.png" />
+    <Content Include="Content\images\hairdresser.png" />
     <Content Include="Content\images\hamburger.png" />
     <Content Include="Content\images\HomeBanner.png" />
     <Content Include="Content\images\homebg.jpg" />
@@ -849,6 +855,7 @@
     <Content Include="Content\images\pedestrian-walking.png" />
     <Content Include="Content\images\pedestrianblue.png" />
     <Content Include="Content\images\pedestrianred.png" />
+    <Content Include="Content\images\pedestrians.png" />
     <Content Include="Content\images\pedestrianyellow.png" />
     <Content Include="Content\images\person1.png" />
     <Content Include="Content\images\person2.png" />
@@ -858,6 +865,8 @@
     <Content Include="Content\images\taxi.png" />
     <Content Include="Content\images\tent.png" />
     <Content Include="Content\images\train-station.png" />
+    <Content Include="Content\images\walk.png" />
+    <Content Include="Content\images\wc.png" />
     <Content Include="Content\images\wheelchair.png" />
     <Content Include="Content\images\womencanva2Shorter.png" />
     <Content Include="Content\LandingPage.css" />

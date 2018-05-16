@@ -1,4 +1,6 @@
 ﻿@model IEProject.Models.PublicToiletForm
+@Styles.Render("~/Content/Site.css")
+    
 @Styles.Render("~/Content/leaflet.css")
 
 @{
@@ -7,8 +9,11 @@
 }
 <link href="~/Content/ServicePage.css" rel="stylesheet" />
 <link href="~/Content/pace-theme-flat-top.css" rel="stylesheet" />
-<link  href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
-<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="~/Content/style.css">
+
+
+<link  href="https://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 <link rel="stylesheet" href="~/Content/leaflet.awesome-markers.css">
 <style>
     #mapid {
@@ -223,21 +228,14 @@
 
 
 
-                    <br />
+                
                     
                 </div>
 
                 <div id="print" style="visibility:visible"> 
-
-                    <div style="background-color:white">
-                        @Html.Label("This is a journey planner")
-                        <br />
-                        @Html.Label("You destination is")
-                        @Html.Label("not selected yet", @Model.Address)
-                        <br />
-                        @Html.Label("The information are locations nearest to  your destination.")
-                    </div>
-                    <br />
+                   
+                     <br/>
+               
 
                     <div id="let" style="display:none">
                         <table id="data" font color="#FFFFFF"  class="table">
@@ -247,7 +245,7 @@
 
 
                                     <th>
-                                        @Html.Label(" Toilet Address", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.Label(" Toilet Address", htmlAttributes: new { @class = "control-label col-md-8" })
                                     </th>
                                     <th>
                                         @Html.Label(" Wheelchair", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -263,7 +261,7 @@
                                         @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
                                     </th>
 
-                                    <th></th>
+                                 
 
                                 </tr>
                             </thead>
@@ -294,7 +292,10 @@
                             </tbody>
                         </table>
                     </div>
-
+                    <br />
+                   
+              
+            
                     <div id="train" style="display:none">
                         <table id="data2" font color="#FFFFFF" class="table">
 
@@ -306,13 +307,12 @@
                                         @Html.Label("Station", htmlAttributes: new { @class = "control-label col-md-2" })
                                     </th>
                                     <th>
-                                        @Html.Label("Lift Present", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.Label("Lift Present", htmlAttributes: new { @class = "control-label col-md-10" })
                                     </th>
                                     <th>
                                         @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
                                     </th>
 
-                                    <th></th>
 
                                 </tr>
                             </thead>
@@ -337,7 +337,9 @@
                             </tbody>
                         </table>
                     </div>
-
+                
+                  
+                    <br />
                     <div id="b1" style="display:none">
                         <table id="data3" font color="#FFFFFF"  class="table">
 
@@ -345,16 +347,16 @@
                                 <tr>
 
                                     <th>
-                                        @Html.Label("Trade Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.Label("Trade Name", htmlAttributes: new { @class = "control-label col-md-8" })
                                     </th>
                                     <th>
-                                        @Html.Label("Industry Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.Label("Industry Description", htmlAttributes: new { @class = "control-label col-lg-12" })
                                     </th>
                                     <th>
-                                        @Html.Label("Accessibility Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.Label("Accessibility Description", htmlAttributes: new { @class = "control-label col-md-12" })
                                     </th>
                                     <th>
-                                        @Html.Label("Establishment Address", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        @Html.Label("Address", htmlAttributes: new { @class = "control-label col-lg-12" })
                                     </th>
 
 
@@ -365,7 +367,7 @@
                                         @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
                                     </th>
 
-                                    <th></th>
+                                   
 
                                 </tr>
                             </thead>
@@ -402,6 +404,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <br />
+                
+                   
                     <div id="car" style="display:none">
                         <table id="data4" font color="#FFFFFF"  class="table">
 
@@ -417,7 +422,7 @@
                                     </th>
 
 
-                                    <th></th>
+                               
 
                                 </tr>
                             </thead>
@@ -470,7 +475,10 @@
 
 @section Scripts {
     @Scripts.Render("~/Scripts/jquery.js")
+    @Scripts.Render("~/Scripts/jquery.dataTables.js")   
+    @Scripts.Render("~/Scripts/datScript.js")
     @Scripts.Render("https://maps.googleapis.com/maps/api/js?key=AIzaSyCF8dUfrXUwf5-fqeBOTJNPBw4iYYsI_bk&sensor=false&libraries=places")
+
     @Scripts.Render("~/Scripts/autoapi.js")
     @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js")
     @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js")
@@ -520,7 +528,7 @@
         var toilets = JSON.parse('@Html.Raw(Json.Encode(@Model.sorttoilets))');
 
         var yellowIcon = new L.Icon({
-            iconUrl: '/Content/images/man-sitting-on-the-toilet.png',
+            iconUrl: '/Content/images/wc.png',
 
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
             iconSize: [25, 41],
@@ -538,7 +546,7 @@
         var buildings = JSON.parse('@Html.Raw(Json.Encode(@Model.sortbuildings))');
 
         var beer = new L.Icon({
-            iconUrl: '/Content/images/beer.png',
+            iconUrl: '/Content/images/cocktail.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
@@ -547,7 +555,7 @@
         });
 
         var cafe = new L.Icon({
-            iconUrl: '/Content/images/hamburger.png',
+            iconUrl: '/Content/images/restaurant.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
@@ -555,7 +563,7 @@
             shadowSize: [41, 41]
         });
         var hair = new L.Icon({
-            iconUrl: '/Content/images/hair-dryer.png',
+            iconUrl: '/Content/images/hairdresser.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
@@ -571,7 +579,7 @@
             shadowSize: [41, 41]
         });
         var grocery = new L.Icon({
-            iconUrl: '/Content/images/groceries.png',
+            iconUrl: '/Content/images/grocery.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
@@ -645,7 +653,7 @@
             var marker = L.marker([stations[i].lat, stations[i].lon], { icon: train }).addTo(mymap);
 
 
-            marker.bindPopup( "Train Station : " + stations[i].name + '<br>' +"Distance: " + stations[i].distance + " meters" ).openPopup();
+            marker.bindPopup("Train Station : " + stations[i].name + '<br>'+"Lift Present: "  + stations[i].lift + '<br>'+ "Distance: " + stations[i].distance + " meters").openPopup();
         }
 
         var carparks = JSON.parse('@Html.Raw(Json.Encode(@Model.sortparkingspots))');
@@ -670,7 +678,7 @@
 
         var peds = JSON.parse('@Html.Raw(Json.Encode(@Model.pedestrians))');
         var safe = new L.Icon({
-            iconUrl: '/Content/images/pedestrianblue.png',
+            iconUrl: '/Content/images/walk.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
@@ -686,7 +694,7 @@
             shadowSize: [41, 41]
         });
         var high = new L.Icon({
-            iconUrl: '/Content/images/pedestrianred.png',
+            iconUrl: '/Content/images/group-of-men-running.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],

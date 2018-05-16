@@ -14,10 +14,13 @@
 document.getElementById('Latitude').value = 0;
 document.getElementById('Longitude').value = 0;
 
+var strictBounds = new google.maps.LatLngBounds(
+  new google.maps.LatLng(-37.861371, 144.938679),
+  new google.maps.LatLng(-37.796289, 144.998761));
 
 google.maps.event.addDomListener(window, 'load', function () {
     var options = {
-     
+        bounds: strictBounds,
         types: ['geocode'],
         componentRestrictions: { country: "AU" },
        
