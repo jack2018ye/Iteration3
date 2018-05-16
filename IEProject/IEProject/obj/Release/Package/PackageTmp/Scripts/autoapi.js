@@ -20,6 +20,7 @@ var strictBounds = new google.maps.LatLngBounds(
 
 google.maps.event.addDomListener(window, 'load', function () {
     var options = {
+        strictBounds: true,
         bounds: strictBounds,
         types: ['geocode'],
         componentRestrictions: { country: "AU" },
@@ -29,20 +30,7 @@ google.maps.event.addDomListener(window, 'load', function () {
 
 
     var input = document.getElementById('Address');
-    $(input).on('input', function () {
-        var str = input.value;
-        var prefix = 'Melbourne, ';
-        if (str.indexOf(prefix) == 0) {
-            console.log(input.value);
-        } else {
-            if (prefix.indexOf(str) >= 0) {
-                input.value = prefix;
-            } else {
-                input.value = prefix + str;
-            }
-        }
-
-    });
+ 
 
     var places = new google.maps.places.Autocomplete(input, options);
 

@@ -58,7 +58,7 @@ namespace IEProject.Models
         /// </summary>
         /// <value>The address.</value>
         [Required(ErrorMessage = "Address field cannot be empty!!")]
-        [RegularExpression("^[0-9a-zA-Z /,]+$", ErrorMessage = "Invalid address, please input a correct address.")]
+        [RegularExpression("^[0-9a-zA-Z /,-]+$", ErrorMessage = "Invalid address, please input a correct address.")]
         [StringLength(100, ErrorMessage = "Invalid Input")]
         public string Address { get; set; }
 
@@ -90,13 +90,13 @@ namespace IEProject.Models
 
         public List<building> buildings { get; set; }
 
-        [DisplayName("Pubs, Taverns and Bars")]
+        [DisplayName("Pubs, Taverns & Bars")]
         public bool barselect { get; set; }
         [DisplayName("Clothing Retailing")]
         public bool retailselect { get; set; }
-        [DisplayName("Cafes and Restaurants")]
+        [DisplayName("Cafes & Restaurants")]
         public bool cafeselect { get; set; }
-        [DisplayName("Supermarket and Grocery Stores")]
+        [DisplayName("Supermarket & Groceries")]
         public bool supermarketselect { get; set; }
 
       
@@ -105,7 +105,7 @@ namespace IEProject.Models
         public bool convenienceselect { get; set; }
         [DisplayName("Accomodation")]
         public bool accomodationselect { get; set; }
-        [DisplayName("Hairdressing and Beauty Services")]
+        [DisplayName("Hairdressing  Services")]
         public bool hairdressingselect { get; set; }
         [DisplayName("Car")]
         public bool cartick { get; set; }

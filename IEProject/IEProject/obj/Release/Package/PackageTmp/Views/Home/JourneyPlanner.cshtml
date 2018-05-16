@@ -16,23 +16,35 @@
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 <link rel="stylesheet" href="~/Content/leaflet.awesome-markers.css">
 <style>
+     greyBackground{
+
+
+margin:0px;
+}
+    form{
+width:120%;
+position:relative;
+right:9.5%;
+
+margin:0px;
+}
     #mapid {
-        height: 550px;
-        width: 985px;
+        height: 500px;
+        width: 112%;
         position: relative;
-        left: 22px;
+        right: 5.5%;
     
     }
 </style>
 <body>
 
-    <div class="container">
+    <div class="container" style="width:100%">
 
-        <div class="jumbotron" style="background-color:transparent;padding-top:10px">
+        <div class="jumbotron" style="background-color:transparent;padding-top:10px;width:100%">
           
 
             
-            <span style="color:white;font-size:45px;padding-top:0px;padding-bottom:0px;padding-left:3px;padding-right:3px">
+            <span style="color:white;font-size:30px;padding-top:0px;padding-bottom:0px;padding-left:3px;padding-right:3px;margin-left:-5.7%">
                 Find Services 
             </span>
 
@@ -61,7 +73,7 @@
 
                                 <br />
 
-                                <div class="container" style="font-size:15px">
+                                <div class="container" style="font-size:12px">
                                     <form></form>
 
                                     <div class="parent">
@@ -146,15 +158,20 @@
                                             <hr />
                                             <div id="others">
                                                 <div>
-                                                    @Html.Label("Time :")
+                                                    <div>
+                                                        @Html.Label("Day :")
+                                                        @Html.DropDownListFor(model => model.day, new SelectList(ViewBag.days, "Value", "Text"), "Select")
+                                                        @Html.ValidationMessageFor(model => model.day, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div>
+                                                        @Html.Label("Time :")
 
 
-                                                    @Html.DropDownListFor(model => model.hour, new SelectList(ViewBag.hours, "Value", "Text"), "Select")
-                                                    @Html.ValidationMessageFor(model => model.hour, "", new { @class = "text-danger" })
-                                                
-                                                    @Html.Label("Day :")
-                                                    @Html.DropDownListFor(model => model.day, new SelectList(ViewBag.days, "Value", "Text"), "Select")
-                                                    @Html.ValidationMessageFor(model => model.day, "", new { @class = "text-danger" })
+                                                        @Html.DropDownListFor(model => model.hour, new SelectList(ViewBag.hours, "Value", "Text"), "Select")
+                                                        @Html.ValidationMessageFor(model => model.hour, "", new { @class = "text-danger" })
+                                                    </div>
+                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -214,14 +231,14 @@
                    
 
 
-                <div id="content" class="img-responsive"> 
-                    <div id="mapid"class="img-responsive">
+                <div id="content" > 
+                    <div id="mapid">
                         
                             
                       
                     </div>
-                    <div class="parent"style="max-width:985px;margin-left:25px">
-                        <input type="button" value="Print Result as PDF" class="btn btn-primary btn-lg btn-block" id="pdf"style="width" />
+                    <div class="img-responsive"style="max-width:1085px;margin-left:-5.5%">
+                        <input type="button" value="Print Result as PDF" class="btn btn-primary btn-lg btn-block" id="pdf"style="width:106.5%;" />
                     </div>
                     <br />
                 
