@@ -778,10 +778,11 @@ margin:0px;
             var elem4 = document.getElementById("data4");
             var res4 = doc.autoTableHtmlToJson(elem4);
 
-        
+            doc.text(30, 20, 'Your destination is ' + address +'.');
+            doc.text(30, 30, 'The table(s) below have information on the services near your destination.');
             if (toilets.length > 0) {
                 doc.autoTable(res.columns, res.data, {
-                    startY: 20,
+                    startY: 45,
                     margin: { horizontal: 7 },
                     styles: { overflow: 'hidden', columnWidth: 'wrap' },
                     columnStyles: { text: { columnWidth: 'auto' } }
@@ -797,7 +798,7 @@ margin:0px;
             }
             else if (toilets.length < 1 && stations.length > 0 && buildings.length > 0) {
                 doc.autoTable(res2.columns, res2.data, {
-                    startY: 20,
+                    startY: 45,
                     margin: { horizontal: 7 },
                     styles: { overflow: 'hidden', columnWidth: 'wrap' },
                     columnStyles: { text: { columnWidth: 'auto' } }
@@ -809,7 +810,7 @@ margin:0px;
             }
             else if (toilets.length < 1 && stations.length > 0 && buildings.length < 1) {
                 doc.autoTable(res2.columns, res2.data, {
-                    startY: 20,
+                    startY: 45,
                     margin: { horizontal: 7 },
                     styles: { overflow: 'hidden', columnWidth: 'wrap' },
                     columnStyles: { text: { columnWidth: 'auto' } }
@@ -817,7 +818,7 @@ margin:0px;
             }
             if (toilets.length > 0 && stations.length > 0 && buildings.length > 0) {
                 doc.autoTable(res.columns, res.data, {
-                    startY: 20,
+                    startY: 45,
                     margin: { horizontal: 7 },
                     styles: { overflow: 'hidden', columnWidth: 'wrap' },
                     columnStyles: { text: { columnWidth: 'auto' } }
@@ -863,7 +864,7 @@ margin:0px;
             else if(toilets.length<1 && stations.length<1&&buildings.length>0)  {
 
                 doc.autoTable(res3.columns, res3.data, {
-                    startY: 20,
+                    startY: 45,
                     margin: { horizontal: 7 },
                     styles: { overflow: 'hidden', columnWidth: 'wrap' },
                     columnStyles: { text: { columnWidth: 'auto' } }
