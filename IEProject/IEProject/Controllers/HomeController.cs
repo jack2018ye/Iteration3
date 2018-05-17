@@ -244,8 +244,7 @@ namespace IEProject.Controllers
                     {
                         if (b.Industry_description.Equals(a))
                         {
-                            
-                            
+                           
                                 Buildings.Add(b);
                             
                         }
@@ -334,6 +333,8 @@ namespace IEProject.Controllers
                     nearestbuilding.Add(new BuildingsNearby { distance = Math.Round(distanceFrom.GetDistanceTo(distanceTo), 0), address = building.Street_address, type = building.Trading_name,industrydesc=building.Industry_description,accesstype=building.Accessibility_type,accessdesc=building.Accessibility_type_description,accessrate=building.Accessibility_rating,lat = latitude,lon= longitude });
                 }
             }
+            
+            
 
             foreach (var parkingspot in parkingspots)
             {
@@ -361,7 +362,8 @@ namespace IEProject.Controllers
                 List<BuildingsNearby> SortedBuildings = nearestbuilding.OrderBy(a => a.distance).ToList();
                 List<ParkingNearby> SortedParkingspots = nearestparking.OrderBy(a => a.distance).ToList();
 
-                int to = 3;
+               
+                    int to = 3;
                 if (SortedList.Count < to)
                     to = SortedBuildings.Count;
                 for (int i = 0; i < to; i++)
@@ -387,22 +389,25 @@ namespace IEProject.Controllers
 
 
                 }
-                if (SortedBuildings.Count > 0)
-
+                int counting = 0;
+                if (something.Count() > 0) { 
+                foreach (var buil in SortedBuildings)
                 {
-                    int co = 7;
-                    if ( SortedBuildings.Count<co)
-                        co = SortedBuildings.Count;
-                    for (int i = 0; i < co; i++)
-                    {
-                        if(something.Count>0)
-                       
-                            model.sortbuildings.Add(SortedBuildings[i]);
-                        
+               
 
 
 
-                    }
+
+                        if (model.sortbuildings.Where(x => x.industrydesc.Equals(buil.industrydesc)).Count() < 5)
+                        {
+
+                            model.sortbuildings.Add(buil);
+
+                        }
+
+                    
+                    counting++;
+                }
                 }
                 for (int i = 0; i < 5; i++)
                 {
