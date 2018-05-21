@@ -1,0 +1,937 @@
+﻿@model IEProject.Models.PublicToiletForm
+@Styles.Render("~/Content/Site.css")
+    
+@Styles.Render("~/Content/leaflet.css")
+
+@{
+    ViewBag.Title = "JourneyPlanner";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/ServicePage.css" rel="stylesheet" />
+<link href="~/Content/pace-theme-flat-top.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/style.css">
+
+
+<link  href="https://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="~/Content/leaflet.awesome-markers.css">
+<style>
+
+    .legend {
+        line-height: 18px;
+   
+      
+        color: black;
+        width:50%;
+        height:auto;
+        
+    }
+    .info {
+    padding: 10px 8px;
+    font: 8px/10px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.info h4 {
+    margin: 0 0 5px;
+    color: black;
+}
+    .legend i {
+    width: 18px;
+    height: 18px;
+    float: right;
+   
+    opacity: 100;
+
+}
+     greyBackground{
+
+
+margin:0px;
+}
+    form{
+width:120%;
+position:relative;
+right:9.5%;
+
+margin:0px;
+}
+    #mapid {
+        height: 500px;
+        width: 112%;
+        position: relative;
+        right: 5.5%;
+    
+    }
+</style>
+<body>
+
+    <div class="container" style="width:100%">
+
+        <div class="jumbotron" style="background-color:transparent;padding-top:10px;width:100%">
+          
+
+            
+            <span style="color:white;font-size:30px;padding-top:0px;padding-bottom:0px;padding-left:3px;padding-right:3px;margin-left:-5.7%">
+                Find Services 
+            </span>
+
+            @using (Html.BeginForm("JourneyPlanner", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="img-responsive" style="margin-bottom:30px">
+                <div class="container"  id="content2">
+                    <div class="form-group">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                               
+
+
+                                <div class="col-md-10">
+                                    <div>
+                                        <h5>
+                                            Where are you going?
+                                        </h5>
+                                    </div>
+                                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" ,@placeholder="Enter your destination in Melbourne city"} })
+                                    <div style="background-color:white;margin-top:15px;padding-left:15px">
+                                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="container" style="font-size:12px">
+                                    <form></form>
+
+                                    <div class="parent">
+                                        <div class="col-sm-4">
+                                            <h6 style="color:black">How are you travelling?</h6>
+                                            <hr />
+
+                                            <div style="color:black">
+                                                @Html.CheckBoxFor(m => m.cartick)
+                                                @Html.LabelFor(m => m.cartick)
+                                            </div>
+
+                                            <div style="color:black">
+
+
+                                                @Html.CheckBoxFor(m => m.traintick)
+                                                @Html.LabelFor(m => m.traintick)
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-3">
+
+                                            <h6 style="color:black">Gettting food or drinks?</h6>
+                                            <hr />
+                                            <div id="others">
+                                                <div style="color:black">
+                                                    @Html.CheckBoxFor(m => m.barselect)
+                                                    @Html.LabelFor(m => m.barselect)
+
+                                                </div>
+                                                <div style="color:black">
+                                                    @Html.CheckBoxFor(m => m.cafeselect)
+                                                    @Html.LabelFor(m => m.cafeselect)
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <h6 style="color:black">Thinking to use a service?</h6>
+                                            <hr />
+                                            <div style="color:black">
+                                                @Html.CheckBoxFor(m => m.toilettick)
+                                                @Html.LabelFor(m => m.toilettick)
+                                            </div>
+                                            <div id="others">
+                                                <div style="color:black">
+                                                    @Html.CheckBoxFor(m => m.accomodationselect)
+                                                    @Html.LabelFor(m => m.accomodationselect)
+
+                                                </div>
+
+                                                <div style="color:black">
+                                                    @Html.CheckBoxFor(m => m.hairdressingselect)
+
+                                                    @Html.LabelFor(m => m.hairdressingselect)
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                               
+                                        <div class="col-lg-4">
+                                            <h6 style="color:black">Plan to go shopping?</h6>
+                                            <hr />
+                                            <div id="others">
+                                                <div style="color:black">
+                                                    @Html.CheckBoxFor(m => m.retailselect)
+                                                    @Html.LabelFor(m => m.retailselect)
+
+                                                </div>
+                                                <div style="color:black">
+                                                    @Html.CheckBoxFor(m => m.supermarketselect)
+                                                    @Html.LabelFor(m => m.supermarketselect)
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <h6 style="color:black">Checking for crowded areas?</h6>
+                                            <hr />
+                                            <div id="others">
+                                                <div>
+                                                    <div>
+                                                        @Html.Label("Day :")
+                                                        @Html.DropDownListFor(model => model.day, new SelectList(ViewBag.days, "Value", "Text"), "Select")
+                                                        @Html.ValidationMessageFor(model => model.day, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div>
+                                                        @Html.Label("Time :")
+
+
+                                                        @Html.DropDownListFor(model => model.hour, new SelectList(ViewBag.hours, "Value", "Text"), "Select")
+                                                        @Html.ValidationMessageFor(model => model.hour, "", new { @class = "text-danger" })
+                                                    </div>
+                                                   
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+
+
+                                    </div>
+
+                                  
+
+                                </div>
+
+
+
+
+                                <button id="mybutton" type="submit" class="btn btn-primary btn-lg btn-block">Search</button>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                    </div>
+             
+
+
+
+
+
+                        <div class="col-md-10">
+                            @Html.HiddenFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-10">
+                            @Html.HiddenFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
+                        </div>
+
+
+
+
+
+                        <div class="col-md-10">
+                            @Html.HiddenFor(model => model.select, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.select, "", new { @class = "text-danger" })
+                        </div>
+
+
+
+
+                      
+
+
+
+
+                    
+                   
+
+
+                <div id="content" > 
+                    <div id="mapid">
+                        
+                            
+                      
+                    </div>
+                    <div class="img-responsive"style="max-width:1085px;margin-left:-5.5%">
+                        <input type="button"disabled value="Save Result as PDF" class="btn btn-primary btn-lg btn-block" id="pdf"style="width:106.5%;" />
+                    </div>
+                    <br />
+                
+
+
+
+                
+                    
+                </div>
+
+                <div id="print" style="visibility:visible"> 
+                   
+                     <br/>
+               
+
+                    <div id="let" style="display:none">
+                        <table id="data" font color="#FFFFFF"  class="table">
+
+                            <thead>
+                                <tr>
+
+
+                                    <th>
+                                        @Html.Label(" Toilet Address", htmlAttributes: new { @class = "control-label col-md-8" })
+                                    </th>
+                                    <th>
+                                        @Html.Label(" Wheelchair", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+                                    <th>
+                                        @Html.Label(" Male", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+                                    <th>
+                                        @Html.Label(" Female", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+
+                                    <th>
+                                        @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+
+                                 
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var element in Model.sorttoilets)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(m => element.address)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => element.wheelchair)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => element.male)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => element.female)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(m => element.distance)
+                                        </td>
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <br />
+                   
+              
+            
+                    <div id="train" style="display:none">
+                        <table id="data2" font color="#FFFFFF" class="table">
+
+                            <thead>
+                                <tr>
+
+
+                                    <th>
+                                        @Html.Label("Station", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+                                    <th>
+                                        @Html.Label("Lift Present", htmlAttributes: new { @class = "control-label col-md-10" })
+                                    </th>
+                                    <th>
+                                        @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var element in Model.sorttrains)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(m => element.name)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(m => element.lift)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => element.distance)
+                                        </td>
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                
+                  
+                    <br />
+                    <div id="b1" style="display:none">
+                        <table id="data3" font color="#FFFFFF"  class="table">
+
+                            <thead>
+                                <tr>
+
+                                    <th>
+                                        @Html.Label("Trade Name", htmlAttributes: new { @class = "control-label col-md-8" })
+                                    </th>
+                                    <th>
+                                        @Html.Label("Industry Description", htmlAttributes: new { @class = "control-label col-lg-12" })
+                                    </th>
+                                    <th>
+                                        @Html.Label("Accessibility Description", htmlAttributes: new { @class = "control-label col-md-12" })
+                                    </th>
+                                    <th>
+                                        @Html.Label("Address", htmlAttributes: new { @class = "control-label col-lg-12" })
+                                    </th>
+
+
+
+
+
+                                    <th>
+                                        @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+
+                                   
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var element in Model.sortbuildings)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(m => element.type)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => element.industrydesc)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => element.accessdesc)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => element.address)
+                                        </td>
+
+
+
+
+
+
+
+                                        <td>
+                                            @Html.DisplayFor(m => element.distance)
+                                        </td>
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <br />
+                
+                   
+                    <div id="car" style="display:none">
+                        <table id="data4" font color="#FFFFFF"  class="table">
+
+                            <thead>
+                                <tr>
+
+
+                                    <th>
+                                        @Html.Label("Parking BayId", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+                                    <th>
+                                        @Html.Label("Distance(Meters)", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    </th>
+
+
+                               
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var element in Model.sortparkingspots)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(m => element.id)
+                                        </td>
+
+
+                                        <td>
+                                            @Html.DisplayFor(m => element.distance)
+                                        </td>
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                @*<div class="container" style="margin-left:40px" id="data">
+                        <ul class="list-group">
+                            @foreach (var element in Model.sorttoilets)
+                        {
+                                <li class="list-group-item">@Html.DisplayFor(m => element.name)<span class="badge">@Html.DisplayFor(m => element.distance) meters</span></li>
+                            }
+
+                        </ul>
+                    </div>*@
+
+             
+
+
+
+            }
+
+        </div>
+    </div>
+
+
+</body>
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/jquery.js")
+    @Scripts.Render("~/Scripts/jquery.dataTables.js")   
+    @Scripts.Render("~/Scripts/datScript.js")
+    @Scripts.Render("https://maps.googleapis.com/maps/api/js?key=AIzaSyCF8dUfrXUwf5-fqeBOTJNPBw4iYYsI_bk&sensor=false&libraries=places")
+
+    @Scripts.Render("~/Scripts/autoapi.js")
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js")
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js")
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.2/jspdf.plugin.autotable.js")
+    @Scripts.Render("~/Scripts/pdfprint.js")
+    @Scripts.Render("~/Scripts/refresh.js")
+    @Scripts.Render("~/Scripts/pace.js")
+    @Scripts.Render("~/Scripts/leaflet.js")
+   @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js")
+    <script>
+        var lat = JSON.parse('@Html.Raw(Json.Encode(@Model.Latitude))');
+        var lon = JSON.parse('@Html.Raw(Json.Encode(@Model.Longitude))');
+
+        var address = JSON.parse('@Html.Raw(Json.Encode(@Model.Address))');
+        if (address == null || address == "") {
+            lat = -37.8136;
+            lon = 144.9631;
+        }
+        var mymap = L.map('mapid').setView([lat, lon], 15);
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hpbmlnYW1pZXgiLCJhIjoiY2pnaXZhcG81MDJjMTJxcWpnc3VpajI5bCJ9.N5t4GjexNqoKeNtL1JxyUA', {
+            attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
+            maxZoom: 40,
+            id: 'mapbox.streets',
+            accessToken: 'your.mapbox.access.token'
+        }).addTo(mymap);
+
+  
+        var redIcon = new L.Icon({
+            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+
+
+        if (address != null && address != "") {
+
+            var marker2 = L.marker([lat, lon], { icon: redIcon }).addTo(mymap);
+        }
+
+        marker2.bindPopup("Your Destination" + '<br>' + "Address : " + address).openPopup();
+
+
+        var toilets = JSON.parse('@Html.Raw(Json.Encode(@Model.sorttoilets))');
+
+        var yellowIcon = new L.Icon({
+            iconUrl: '/Content/images/wc.png',
+
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        for (var i = 0; i < toilets.length; i++) {
+
+            var marker = L.marker([toilets[i].latitude, toilets[i].longitude], { icon: yellowIcon }).addTo(mymap);
+
+            marker.bindPopup("Public Toilet" + '<br>' + "Wheelchair Access: " + toilets[i].wheelchair + '<br>' + "Address : " + toilets[i].address + '<br>' + "Distance: " + toilets[i].distance + " meters").openPopup();
+        }
+
+        var buildings = JSON.parse('@Html.Raw(Json.Encode(@Model.sortbuildings))');
+
+        var beer = new L.Icon({
+            iconUrl: '/Content/images/cocktail.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+        var cafe = new L.Icon({
+            iconUrl: '/Content/images/restaurant.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var hair = new L.Icon({
+            iconUrl: '/Content/images/hairdresser.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var clothes = new L.Icon({
+            iconUrl: '/Content/images/clothes.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var grocery = new L.Icon({
+            iconUrl: '/Content/images/grocery.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var accommodation = new L.Icon({
+            iconUrl: '/Content/images/accomodation.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        for (var i = 0; i < buildings.length; i++) {
+            if (buildings[i].industrydesc == "Hairdressing and Beauty Services") {
+                var marker = L.marker([buildings[i].lat, buildings[i].lon], { icon: hair }).addTo(mymap);
+
+
+                marker.bindPopup("Establishment" + '<br>' + "Name : " + buildings[i].type + '<br>' + "Address : " + buildings[i].address + '<br>' + "Accessibility: " + buildings[i].accessdesc + '<br>' + "Distance: " + buildings[i].distance + " meters").openPopup();
+            }
+            if (buildings[i].industrydesc == "Cafes and Restaurants") {
+                var marker = L.marker([buildings[i].lat, buildings[i].lon], { icon: cafe }).addTo(mymap);
+
+
+                marker.bindPopup("Establishment" + '<br>' + "Name : " + buildings[i].type + '<br>' + "Address : " + buildings[i].address + '<br>' + "Accessibility: " + buildings[i].accessdesc + '<br>' + "Distance: " + buildings[i].distance + " meters").openPopup();
+            }
+            if (buildings[i].industrydesc == "Pubs, Taverns and Bars") {
+                var marker = L.marker([buildings[i].lat, buildings[i].lon], { icon: beer }).addTo(mymap);
+
+
+                marker.bindPopup("Establishment" + '<br>' + "Name : " + buildings[i].type + '<br>' + "Address : " + buildings[i].address + '<br>' + "Accessibility: " + buildings[i].accessdesc + '<br>' + "Distance: " + buildings[i].distance + " meters").openPopup();
+            }
+            if (buildings[i].industrydesc == "Clothing Retailing") {
+                var marker = L.marker([buildings[i].lat, buildings[i].lon], { icon: clothes }).addTo(mymap);
+
+
+                marker.bindPopup("Establishment" + '<br>' + "Name : " + buildings[i].type + '<br>' + "Address : " + buildings[i].address + '<br>' + "Accessibility: " + buildings[i].accessdesc + '<br>' + "Distance: " + buildings[i].distance + " meters").openPopup();
+            }
+        
+        if (buildings[i].industrydesc == "Supermarket and Grocery Stores") {
+            var marker = L.marker([buildings[i].lat, buildings[i].lon], { icon: grocery }).addTo(mymap);
+
+
+            marker.bindPopup("Establishment" + '<br>' + "Name : " + buildings[i].type + '<br>' + "Address : " + buildings[i].address + '<br>' + "Accessibility: " + buildings[i].accessdesc + '<br>' + "Distance: " + buildings[i].distance + " meters").openPopup();
+        }
+        if (buildings[i].industrydesc == "Accommodation") {
+            var marker = L.marker([buildings[i].lat, buildings[i].lon], { icon: accommodation }).addTo(mymap);
+
+
+            marker.bindPopup("Establishment" + '<br>' + "Name : " + buildings[i].type + '<br>' + "Address : " + buildings[i].address + '<br>' + "Accessibility: " + buildings[i].accessdesc + '<br>' + "Distance: " + buildings[i].distance + " meters").openPopup();
+        }
+        }
+        
+
+
+        var stations = JSON.parse('@Html.Raw(Json.Encode(@Model.sorttrains))');
+
+
+        var train = new L.Icon({
+            iconUrl: '/Content/images/train-station.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+
+        for (var i = 0; i < stations.length; i++) {
+            var marker = L.marker([stations[i].lat, stations[i].lon], { icon: train }).addTo(mymap);
+
+
+            marker.bindPopup("Train Station : " + stations[i].name + '<br>'+"Lift Present: "  + stations[i].lift + '<br>'+ "Distance: " + stations[i].distance + " meters").openPopup();
+        }
+
+        var carparks = JSON.parse('@Html.Raw(Json.Encode(@Model.sortparkingspots))');
+
+
+        var parking = new L.Icon({
+            iconUrl: '/Content/images/parking.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+        for (var i = 0; i < carparks.length; i++) {
+            var marker = L.marker([carparks[i].lat, carparks[i].lon], { icon: parking }).addTo(mymap);
+
+            marker.bindPopup("Parking Bay" +'<br/>'+ "Distance: " + carparks[i].distance+ " meters" + '<br>' + "BayID: " + carparks[i].id).openPopup();
+        }
+
+       
+
+        var peds = JSON.parse('@Html.Raw(Json.Encode(@Model.pedestrians))');
+        var safe = new L.Icon({
+            iconUrl: '/Content/images/walk.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var med = new L.Icon({
+            iconUrl: '/Content/images/pedestrianyellow.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var high = new L.Icon({
+            iconUrl: '/Content/images/group-of-men-running.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+        for (var i = 0; i < peds.length; i++) {
+            if (peds[i].HoursCount < 2000) {
+                var marker = L.marker([peds[i].Latitude, peds[i].Longitude], { icon: safe }).addTo(mymap);
+
+                marker.bindPopup("Pedestrian Volume" + '<br>' + peds[i].HoursCount + " people here").openPopup();
+            }
+            if (peds[i].HoursCount > 1999 && peds[i].HoursCount < 4000) {
+                var marker = L.marker([peds[i].Latitude, peds[i].Longitude], { icon: med }).addTo(mymap);
+
+                marker.bindPopup("Pedestrian Volume" + '<br>' + peds[i].HoursCount + " people here").openPopup();
+            }
+            if (peds[i].HoursCount >3999) {
+                var marker = L.marker([peds[i].Latitude, peds[i].Longitude], { icon: high }).addTo(mymap);
+
+                marker.bindPopup("Pedestrian Volume" + '<br>' + peds[i].HoursCount + " people here").openPopup();
+            }
+
+        }
+
+        if (toilets.length > 1) {
+            document.getElementById("pdf").disabled = false;
+            $('html, body').animate({
+                scrollTop: $("#mapid").offset().top
+            }, 'slow');
+        }
+        if (stations.length > 0) {
+            document.getElementById("pdf").disabled = false;
+            $('html, body').animate({
+                scrollTop: $("#mapid").offset().top
+            }, 'slow');
+        }
+        if (carparks.length > 1) {
+            document.getElementById("pdf").disabled = false;
+            $('html, body').animate({
+                scrollTop: $("#mapid").offset().top
+            }, 'slow');
+        }
+        if (buildings.length > 1) {
+            document.getElementById("pdf").disabled = false;
+            $('html, body').animate({
+                scrollTop: $("#mapid").offset().top
+            }, 'slow');
+        }
+        if (peds.length > 0) {
+            document.getElementById("pdf").disabled = false;
+            $('html, body').animate({
+                scrollTop: $("#mapid").offset().top
+            }, 'slow');
+        }
+      
+
+
+        $('#pdf').click(function () {
+            var doc = new jsPDF('l', 'mm', [297, 210]);
+
+            var elem = document.getElementById("data");
+            var res = doc.autoTableHtmlToJson(elem);
+            var elem2 = document.getElementById("data2");
+            var res2 = doc.autoTableHtmlToJson(elem2);
+            var elem3 = document.getElementById("data3");
+            var res3 = doc.autoTableHtmlToJson(elem3);
+            var elem4 = document.getElementById("data4");
+            var res4 = doc.autoTableHtmlToJson(elem4);
+
+            doc.text(30, 20, 'Your destination is ' + address +'.');
+            doc.text(30, 30, 'The table(s) below have information on the services near your destination.');
+            if (toilets.length > 0) {
+                doc.autoTable(res.columns, res.data, {
+                    startY: 45,
+                    margin: { horizontal: 7 },
+                    styles: { overflow: 'hidden', columnWidth: 'wrap' },
+                    columnStyles: { text: { columnWidth: 'auto' } }
+                });
+            }
+            if (toilets.length > 0 && stations.length > 0&&buildings.length<1) {
+                doc.autoTable(res2.columns, res2.data, {
+                    startY: doc.autoTable.previous.finalY + 15,
+                    margin: { horizontal: 7 },
+                    styles: { overflow: 'hidden', columnWidth: 'wrap' },
+                    columnStyles: { text: { columnWidth: 'auto' } }
+                });
+            }
+            else if (toilets.length < 1 && stations.length > 0 && buildings.length > 0) {
+                doc.autoTable(res2.columns, res2.data, {
+                    startY: 45,
+                    margin: { horizontal: 7 },
+                    styles: { overflow: 'hidden', columnWidth: 'wrap' },
+                    columnStyles: { text: { columnWidth: 'auto' } }
+                });
+
+
+
+
+            }
+            else if (toilets.length < 1 && stations.length > 0 && buildings.length < 1) {
+                doc.autoTable(res2.columns, res2.data, {
+                    startY: 45,
+                    margin: { horizontal: 7 },
+                    styles: { overflow: 'hidden', columnWidth: 'wrap' },
+                    columnStyles: { text: { columnWidth: 'auto' } }
+                });
+            }
+            if (toilets.length > 0 && stations.length > 0 && buildings.length > 0) {
+                doc.autoTable(res.columns, res.data, {
+                    startY: 45,
+                    margin: { horizontal: 7 },
+                    styles: { overflow: 'hidden', columnWidth: 'wrap' },
+                    columnStyles: { text: { columnWidth: 'auto' } }
+                });
+
+                doc.autoTable(res2.columns, res2.data, {
+                    startY: doc.autoTable.previous.finalY + 15,
+                    margin: { horizontal: 7 },
+                    styles: { overflow: 'hidden', columnWidth: 'wrap' },
+                    columnStyles: { text: { columnWidth: 'auto' } }
+                });
+
+
+                doc.autoTable(res3.columns, res3.data, {
+                    startY: doc.autoTable.previous.finalY + 15,
+                    margin: { horizontal: 7 },
+                    styles: { overflow: 'hidden', columnWidth: 'wrap' },
+                    columnStyles: { text: { columnWidth: 'auto' } }
+                });
+
+            }
+            else if (stations.length > 0 && buildings.length > 1&&toilets.length<1) {
+
+                doc.autoTable(res3.columns, res3.data, {
+                    startY: doc.autoTable.previous.finalY + 15,
+                    margin: { horizontal: 7 },
+                    styles: { overflow: 'hidden', columnWidth: 'wrap' },
+                    columnStyles: { text: { columnWidth: 'auto' } }
+                });
+
+            }
+            else if (toilets.length > 1 && buildings.length > 1&&stations<1) {
+
+                doc.autoTable(res3.columns, res3.data, {
+                    startY: doc.autoTable.previous.finalY + 15,
+                    margin: { horizontal: 7 },
+                    styles: { overflow: 'hidden', columnWidth: 'wrap' },
+                    columnStyles: { text: { columnWidth: 'auto' } }
+                });
+
+            }
+   
+            else if(toilets.length<1 && stations.length<1&&buildings.length>0)  {
+
+                doc.autoTable(res3.columns, res3.data, {
+                    startY: 45,
+                    margin: { horizontal: 7 },
+                    styles: { overflow: 'hidden', columnWidth: 'wrap' },
+                    columnStyles: { text: { columnWidth: 'auto' } }
+                });
+
+            }
+
+         
+
+            doc.save("Services.pdf");
+        });
+        var legend = L.control({ position: 'bottomright' });
+
+        legend.onAdd = function (mymap) {
+
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = ["  Car Park", "  Train Station", "Wheelchair Public Toilet", "  Pubs, Taverns & Bars", "  Cafes & Restaurants", "  Accommodation", "  Hairdressing Services", "  Clothing Retailing", "  Supermarket & Groceries","  Usual Pedestrian Volume","  Higher Than Usual Pedestrian Volume","  High Pedestrian Volume "],
+                labels = ["/Content/images/parking.png", "/Content/images/train-station.png", "/Content/images/wc.png", "/Content/images/cocktail.png", "/Content/images/restaurant.png", "/Content/images/accomodation.png", "/Content/images/hairdresser.png", "/Content/images/clothes.png", "/Content/images/grocery.png", "/Content/images/walk.png", "/Content/images/pedestrianyellow.png", "/Content/images/group-of-men-running.png"];
+
+            // loop through our density intervals and generate a label with a colored square for each interval
+            for (var i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                    (" <img src=" + labels[i] + " height='15' width='15'style='margin:2px 0px'> ") + grades[i] + '<br>';
+            }
+
+            return div;
+        };
+
+        legend.addTo(mymap);
+
+    </script>
+    }
+
+}
