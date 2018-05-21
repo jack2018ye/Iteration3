@@ -35,6 +35,7 @@ using System.Web;
 /// </summary>
 namespace IEProject.Controllers
 {
+    [HandleError]
     /// <summary>
     /// Class HomeController.
     /// </summary>
