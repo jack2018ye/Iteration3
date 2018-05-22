@@ -825,10 +825,12 @@
     <Content Include="Content\images\hair-dryer.png" />
     <Content Include="Content\images\hairdresser.png" />
     <Content Include="Content\images\hamburger.png" />
+    <Content Include="Content\images\hide.png" />
     <Content Include="Content\images\HomeBanner.png" />
     <Content Include="Content\images\homebg.jpg" />
     <Content Include="Content\images\icon1.png" />
     <Content Include="Content\images\ii1.png" />
+    <Content Include="Content\images\info.png" />
     <Content Include="Content\images\iphone.png" />
     <Content Include="Content\images\job.png" />
     <Content Include="Content\images\Ken.png" />
@@ -836,6 +838,7 @@
     <Content Include="Content\images\layers-2x.png" />
     <Content Include="Content\images\layers.png" />
     <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\loc.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\Logo1.svg" />
     <Content Include="Content\images\Logo2.png" />

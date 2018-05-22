@@ -381,7 +381,7 @@ namespace IEProject.Controllers
             //{
             //    model.Address = "";
             //}
-            var regex = "^[#.0-9a-zA-Z\\s,-]+$";
+            var regex = "^[0-9a-zA-Z /,-]+$";
             Match match = Regex.Match(model.Address ?? "", regex, RegexOptions.IgnoreCase);
             if (match.Success)
             {

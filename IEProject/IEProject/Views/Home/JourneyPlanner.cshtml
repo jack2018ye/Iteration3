@@ -11,7 +11,7 @@
 <link href="~/Content/pace-theme-flat-top.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/Content/style.css">
 
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
 <link  href="https://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 <link rel="stylesheet" href="~/Content/leaflet.awesome-markers.css">
@@ -268,7 +268,10 @@ margin:0px;
                             
                       
                     </div>
+
                     <div class="img-responsive"style="max-width:1085px;margin-left:-5.5%">
+
+                        
                         <input type="button"disabled value="Save Result as PDF" class="btn btn-primary btn-lg btn-block" id="pdf"style="width:106.5%;" />
                     </div>
                     <br />
@@ -536,6 +539,7 @@ margin:0px;
     @Scripts.Render("~/Scripts/pace.js")
     @Scripts.Render("~/Scripts/leaflet.js")
    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js")
+    @Scripts.Render("https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js")
     <script>
         var lat = JSON.parse('@Html.Raw(Json.Encode(@Model.Latitude))');
         var lon = JSON.parse('@Html.Raw(Json.Encode(@Model.Longitude))');
@@ -545,6 +549,7 @@ margin:0px;
             lat = -37.8136;
             lon = 144.9631;
         }
+
         var mymap = L.map('mapid').setView([lat, lon], 15);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hpbmlnYW1pZXgiLCJhIjoiY2pnaXZhcG81MDJjMTJxcWpnc3VpajI5bCJ9.N5t4GjexNqoKeNtL1JxyUA', {
             attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
@@ -930,7 +935,28 @@ margin:0px;
         };
 
         legend.addTo(mymap);
+        $('.legend').hide();
+        showLegend = true;
+         function toggle() {
+            if (showLegend === true) {
+                /* use jquery to select your DOM elements that has the class 'legend' */
+                $('.legend').show();
+                showLegend = false;
+            } else {
+                $('.legend').hide();
+                showLegend = true;
+            }
+         }
+       
+         L.easyButton('<img src="/Content/images/loc.png">', function (btn, map) {
+             mymap.setView([lat, lon], 18);
+             marker2.openPopup();
+         }).addTo(mymap);
+        L.easyButton('<img src="/Content/images/info.png">', function (btn, map) {
+            toggle();
+        }).addTo(mymap);
 
+        marker2.openPopup();
     </script>
     }
 
